@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About — 3we Robotics Platform</title>
+<meta name="description" content="The mission, team, and licensing behind the 3we open-source embodied robotics platform."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body class="bg-background text-text-primary font-body selection:bg-primary-fixed">
+
+<!-- Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle">
+<nav class="max-w-container-max mx-auto px-margin-desktop py-4 flex justify-between items-center">
+  <div class="flex items-center gap-8">
+    <a href="/" class="font-display text-headline-md font-bold tracking-tighter text-text-primary">3we</a>
+    <div class="hidden md:flex gap-6">
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/">Product</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/hardware">Hardware</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/community">Community</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="https://docs.3we.org">Docs</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="https://github.com/telleroutlook/3we-robot-platform" class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all">star</a>
+    <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95">Get Started</a>
+  </div>
+</nav>
+</header>
+
+<main class="pt-24 overflow-x-hidden">
+
+<!-- Mission Hero -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap text-center">
+  <span class="font-mono text-label-caps text-primary uppercase tracking-widest">Our Mission</span>
+  <h1 class="font-display text-4xl md:text-headline-xl mt-4 mb-6">Democratizing Embodied AI Research</h1>
+  <p class="font-body text-body-lg text-text-secondary max-w-3xl mx-auto">We believe embodied AI should not be gatekept by expensive hardware, complex middleware, or closed ecosystems. 3we exists to remove three barriers: prohibitive costs, ROS2 complexity, and the sim-to-real gap.</p>
+</section>
+
+<!-- Three Pillars -->
+<section class="bg-surface-studio border-y border-border-subtle py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+  <div class="grid md:grid-cols-3 gap-gutter">
+    <div class="bg-white p-8 border border-border-subtle rounded-xl text-center">
+      <div class="w-16 h-16 mx-auto bg-primary-container/10 rounded-full flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-primary text-3xl">accessibility_new</span>
+      </div>
+      <h3 class="font-display text-headline-sm mb-4">Accessibility</h3>
+      <p class="font-body text-body-md text-text-secondary">AI researchers shouldn't need to learn ROS2. Our Python API reduces 60 lines of boilerplate to 5, letting you focus on the science.</p>
+    </div>
+    <div class="bg-white p-8 border border-border-subtle rounded-xl text-center">
+      <div class="w-16 h-16 mx-auto bg-primary-container/10 rounded-full flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-primary text-3xl">savings</span>
+      </div>
+      <h3 class="font-display text-headline-sm mb-4">Affordability</h3>
+      <p class="font-body text-body-md text-text-secondary">A research-capable robot for under $500. Complete open BOM with supplier links. No proprietary lock-in, no hidden costs.</p>
+    </div>
+    <div class="bg-white p-8 border border-border-subtle rounded-xl text-center">
+      <div class="w-16 h-16 mx-auto bg-primary-container/10 rounded-full flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-primary text-3xl">repeat</span>
+      </div>
+      <h3 class="font-display text-headline-sm mb-4">Reproducibility</h3>
+      <p class="font-body text-body-md text-text-secondary">Same code runs in simulation and on hardware — guaranteed. Standardized benchmarks and public leaderboard ensure verifiable results.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Team / Contributors -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="text-center mb-16">
+  <h2 class="font-display text-headline-lg mb-4">Contributors</h2>
+  <p class="font-body text-body-lg text-text-secondary">An open-source project built by researchers and engineers worldwide.</p>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-12">
+  <div class="text-center">
+    <div class="w-20 h-20 mx-auto bg-surface-container rounded-full flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-primary text-3xl">person</span>
+    </div>
+    <h4 class="font-display text-base font-bold">Core Maintainer</h4>
+    <p class="font-body text-body-sm text-text-secondary">Platform Architecture</p>
+  </div>
+  <div class="text-center">
+    <div class="w-20 h-20 mx-auto bg-surface-container rounded-full flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-primary text-3xl">person</span>
+    </div>
+    <h4 class="font-display text-base font-bold">Hardware Lead</h4>
+    <p class="font-body text-body-sm text-text-secondary">PCB & Firmware</p>
+  </div>
+  <div class="text-center">
+    <div class="w-20 h-20 mx-auto bg-surface-container rounded-full flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-primary text-3xl">person</span>
+    </div>
+    <h4 class="font-display text-base font-bold">AI/ML Lead</h4>
+    <p class="font-body text-body-sm text-text-secondary">VLM & Gymnasium</p>
+  </div>
+  <div class="text-center">
+    <div class="w-20 h-20 mx-auto bg-surface-container rounded-full flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-primary text-3xl">person</span>
+    </div>
+    <h4 class="font-display text-base font-bold">Simulation Lead</h4>
+    <p class="font-body text-body-sm text-text-secondary">Gazebo & Isaac</p>
+  </div>
+</div>
+
+<p class="text-center font-body text-body-lg text-text-secondary">And <strong>50+ contributors</strong> from <strong>12 countries</strong> across academia and industry.</p>
+</section>
+
+<!-- Licensing -->
+<section class="bg-surface-studio border-y border-border-subtle py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+  <h2 class="font-display text-headline-lg text-center mb-16">Open-Source Licensing</h2>
+  <p class="text-center font-body text-body-md text-text-secondary mb-12 max-w-2xl mx-auto">Every component of 3we is open-source under permissive licenses. You can use, modify, and commercialize freely with attribution.</p>
+
+  <div class="overflow-x-auto border border-border-subtle rounded-lg">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-surface-container-low border-b border-border-subtle">
+          <th class="px-6 py-4 font-mono text-label-caps uppercase">Component</th>
+          <th class="px-6 py-4 font-mono text-label-caps uppercase">License</th>
+          <th class="px-6 py-4 font-mono text-label-caps uppercase">Terms</th>
+        </tr>
+      </thead>
+      <tbody class="font-body text-body-sm divide-y divide-border-subtle">
+        <tr>
+          <td class="px-6 py-4 font-medium">Firmware & Software</td>
+          <td class="px-6 py-4"><span class="bg-primary-container/10 text-primary px-2 py-1 rounded font-mono text-xs">Apache 2.0</span></td>
+          <td class="px-6 py-4 text-text-secondary">Permissive. Commercial use with attribution.</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4 font-medium">Hardware Designs</td>
+          <td class="px-6 py-4"><span class="bg-primary-container/10 text-primary px-2 py-1 rounded font-mono text-xs">CERN-OHL-P v2</span></td>
+          <td class="px-6 py-4 text-text-secondary">Open hardware. Derivatives must include attribution.</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4 font-medium">Documentation</td>
+          <td class="px-6 py-4"><span class="bg-primary-container/10 text-primary px-2 py-1 rounded font-mono text-xs">CC BY-SA 4.0</span></td>
+          <td class="px-6 py-4 text-text-secondary">Share-alike. Can commercialize with attribution.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- Contact -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap text-center">
+  <h2 class="font-display text-headline-lg mb-8">Get in Touch</h2>
+  <p class="font-body text-body-lg text-text-secondary mb-12 max-w-2xl mx-auto">For research collaborations, enterprise inquiries, or community questions.</p>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-gutter max-w-4xl mx-auto">
+    <a href="https://github.com/telleroutlook/3we-robot-platform" class="flex flex-col items-center gap-3 p-6 bg-white border border-border-subtle rounded-xl hover:border-primary transition-all">
+      <span class="material-symbols-outlined text-primary text-3xl">code</span>
+      <span class="font-mono text-label-caps uppercase">GitHub</span>
+    </a>
+    <a href="/community" class="flex flex-col items-center gap-3 p-6 bg-white border border-border-subtle rounded-xl hover:border-primary transition-all">
+      <span class="material-symbols-outlined text-primary text-3xl">forum</span>
+      <span class="font-mono text-label-caps uppercase">Discussions</span>
+    </a>
+    <a href="#" class="flex flex-col items-center gap-3 p-6 bg-white border border-border-subtle rounded-xl hover:border-primary transition-all">
+      <span class="material-symbols-outlined text-primary text-3xl">chat</span>
+      <span class="font-mono text-label-caps uppercase">Discord</span>
+    </a>
+    <a href="#" class="flex flex-col items-center gap-3 p-6 bg-white border border-border-subtle rounded-xl hover:border-primary transition-all">
+      <span class="material-symbols-outlined text-primary text-3xl">mail</span>
+      <span class="font-mono text-label-caps uppercase">Email</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-subtle py-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter">
+  <div class="col-span-2">
+    <span class="font-display text-headline-sm font-bold text-text-primary mb-4 block">3we</span>
+    <p class="text-body-sm text-text-secondary font-body max-w-xs">AI-First open infrastructure for embodied robotics research and education.</p>
+    <p class="mt-8 text-body-sm text-text-tertiary font-body">&copy; 2025 3we Robotics. Apache 2.0 + CERN-OHL-P v2.</p>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Product</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/product">Platform</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/hardware">Hardware</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://docs.3we.org">Documentation</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Community</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://github.com/telleroutlook/3we-robot-platform">GitHub</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Discussions</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Contributing</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Legal</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">Apache 2.0</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CERN-OHL-P v2</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CC BY-SA 4.0</a></li>
+    </ul>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>

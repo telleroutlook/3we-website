@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3we — Product Architecture</title>
+<meta name="description" content="One API. Four Backends. Zero Compromise. The clinical foundation for modern robotics with 12ms control loop latency and 0.1mm precision."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body class="bg-background text-text-primary font-body selection:bg-primary-fixed">
+
+<!-- Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle">
+<nav class="max-w-container-max mx-auto px-margin-desktop py-4 flex justify-between items-center">
+  <div class="flex items-center gap-8">
+    <a href="/" class="font-display text-headline-md font-bold tracking-tighter text-text-primary">3we</a>
+    <div class="hidden md:flex gap-6">
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 font-mono text-label-caps uppercase" href="/product">Product</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/hardware">Hardware</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/community">Community</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="https://docs.3we.org">Docs</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="https://github.com/telleroutlook/3we-robot-platform" class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all">star</a>
+    <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95">Get Started</a>
+  </div>
+</nav>
+</header>
+
+<main class="pt-24 overflow-x-hidden">
+
+<!-- Hero Section -->
+<section class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 lg:py-section-gap text-center">
+  <!-- Fine grid background pattern -->
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: linear-gradient(#0d0d0b 1px, transparent 1px), linear-gradient(90deg, #0d0d0b 1px, transparent 1px); background-size: 24px 24px;"></div>
+  <div class="relative z-10 flex flex-col items-center gap-8 max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high w-fit rounded-full">
+      <span class="w-2 h-2 bg-tertiary-container rounded-full animate-pulse"></span>
+      <span class="font-mono text-[10px] text-primary uppercase tracking-widest">Architecture Overview</span>
+    </div>
+    <h1 class="font-display text-4xl md:text-headline-xl text-text-primary leading-tight">
+      One API. Four Backends.<br/><span class="text-primary-container">Zero Compromise.</span>
+    </h1>
+    <p class="font-body text-body-lg text-text-secondary max-w-2xl">
+      The clinical foundation for modern robotics. A unified control plane that bridges simulation and reality with deterministic precision.
+    </p>
+  </div>
+</section>
+
+<!-- Metrics Strip -->
+<section class="bg-surface-studio border-y border-border-subtle">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 grid grid-cols-2 md:grid-cols-4 gap-gutter text-center md:text-left">
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">12ms</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">Control Loop Latency</span>
+  </div>
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">100%</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">ROS2 Native Compliance</span>
+  </div>
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">4</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">Backends</span>
+  </div>
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">0.1mm</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">Precision Repeatability</span>
+  </div>
+</div>
+</section>
+
+<!-- Backend Tabs Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="flex flex-col items-center text-center gap-4 mb-16">
+  <span class="font-mono text-label-caps text-primary uppercase">Backend Architecture</span>
+  <h2 class="font-display text-headline-lg">Interchangeable Intelligence</h2>
+  <p class="max-w-2xl text-text-secondary font-body text-body-md">Four simulation and execution backends, one unified API. Swap with a single config change.</p>
+</div>
+
+<!-- Tabs -->
+<div class="flex flex-wrap justify-center gap-2 mb-12">
+  <button class="tab-btn active px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold border border-border-subtle transition-all" data-tab="mock">Mock</button>
+  <button class="tab-btn px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold border border-border-subtle bg-white text-text-secondary hover:bg-surface-container transition-all" data-tab="gazebo">Gazebo</button>
+  <button class="tab-btn px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold border border-border-subtle bg-white text-text-secondary hover:bg-surface-container transition-all" data-tab="isaac">Isaac Sim</button>
+  <button class="tab-btn px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold border border-border-subtle bg-white text-text-secondary hover:bg-surface-container transition-all" data-tab="real">Real Hardware</button>
+</div>
+
+<!-- Tab Panels -->
+<div class="bg-white border border-border-subtle rounded-2xl p-8 md:p-12">
+  <!-- Mock Panel -->
+  <div class="tab-panel active" id="panel-mock">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="flex flex-col gap-6">
+        <h3 class="font-display text-headline-sm text-text-primary">Zero Dependency Prototyping</h3>
+        <p class="text-body-md text-text-secondary font-body">NumPy-based physics mock for rapid iteration. No GPU, no simulator install, no network. Pure Python deterministic execution for CI pipelines and algorithm development.</p>
+        <ul class="flex flex-col gap-3">
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Instant CI/CD Integration</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">1000x Real-time Speed</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Deterministic Physics</span>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-code-base rounded-xl overflow-hidden border border-white/10">
+        <div class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+          </div>
+          <span class="font-mono text-white/40 ml-4 text-sm">config.yaml</span>
+        </div>
+        <div class="p-6">
+<pre class="font-mono text-label-code leading-relaxed text-white"><span class="text-secondary-fixed-dim">backend:</span> <span class="text-tertiary-fixed-dim">"mock"</span>
+<span class="text-secondary-fixed-dim">robot:</span> <span class="text-tertiary-fixed-dim">"differential_drive"</span>
+<span class="text-secondary-fixed-dim">step_size:</span> <span class="text-primary-fixed-dim">0.001</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gazebo Panel -->
+  <div class="tab-panel" id="panel-gazebo">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="flex flex-col gap-6">
+        <h3 class="font-display text-headline-sm text-text-primary">Full Physics Simulation</h3>
+        <p class="text-body-md text-text-secondary font-body">Gazebo Harmonic with full ROS2 integration. CPU-based multi-body dynamics with Nav2 navigation stack and SLAM capabilities out of the box.</p>
+        <ul class="flex flex-col gap-3">
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Nav2 + SLAM Integration</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Multi-body Collision Physics</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Sensor Noise Models</span>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-code-base rounded-xl overflow-hidden border border-white/10">
+        <div class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+          </div>
+          <span class="font-mono text-white/40 ml-4 text-sm">config.yaml</span>
+        </div>
+        <div class="p-6">
+<pre class="font-mono text-label-code leading-relaxed text-white"><span class="text-secondary-fixed-dim">backend:</span> <span class="text-tertiary-fixed-dim">"gazebo"</span>
+<span class="text-secondary-fixed-dim">robot:</span> <span class="text-tertiary-fixed-dim">"differential_drive"</span>
+<span class="text-secondary-fixed-dim">world:</span> <span class="text-tertiary-fixed-dim">"office_floorplan"</span>
+<span class="text-secondary-fixed-dim">nav_stack:</span> <span class="text-primary-fixed-dim">true</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Isaac Sim Panel -->
+  <div class="tab-panel" id="panel-isaac">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="flex flex-col gap-6">
+        <h3 class="font-display text-headline-sm text-text-primary">GPU-Accelerated Training</h3>
+        <p class="text-body-md text-text-secondary font-body">NVIDIA Isaac Sim with parallel environment execution. Domain randomization, photorealistic rendering, and massive-scale RL training on RTX hardware.</p>
+        <ul class="flex flex-col gap-3">
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">1024 Parallel Environments</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Domain Randomization</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Photorealistic Rendering</span>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-code-base rounded-xl overflow-hidden border border-white/10">
+        <div class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+          </div>
+          <span class="font-mono text-white/40 ml-4 text-sm">config.yaml</span>
+        </div>
+        <div class="p-6">
+<pre class="font-mono text-label-code leading-relaxed text-white"><span class="text-secondary-fixed-dim">backend:</span> <span class="text-tertiary-fixed-dim">"isaac_sim"</span>
+<span class="text-secondary-fixed-dim">robot:</span> <span class="text-tertiary-fixed-dim">"differential_drive"</span>
+<span class="text-secondary-fixed-dim">num_envs:</span> <span class="text-primary-fixed-dim">1024</span>
+<span class="text-secondary-fixed-dim">gpu_id:</span> <span class="text-primary-fixed-dim">0</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real Hardware Panel -->
+  <div class="tab-panel" id="panel-real">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="flex flex-col gap-6">
+        <h3 class="font-display text-headline-sm text-text-primary">Production Deployment</h3>
+        <p class="text-body-md text-text-secondary font-body">Deploy directly to physical hardware. Raspberry Pi 5 + ESP32-S3 + Hailo-8L running ROS2 Jazzy at 50Hz control frequency with ISO 13850 E-Stop compliance.</p>
+        <ul class="flex flex-col gap-3">
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">50Hz Control Loop</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">ISO 13850 E-Stop</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+            <span class="font-body text-body-md text-text-primary">Zero Code Changes from Sim</span>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-code-base rounded-xl overflow-hidden border border-white/10">
+        <div class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+          </div>
+          <span class="font-mono text-white/40 ml-4 text-sm">config.yaml</span>
+        </div>
+        <div class="p-6">
+<pre class="font-mono text-label-code leading-relaxed text-white"><span class="text-secondary-fixed-dim">backend:</span> <span class="text-tertiary-fixed-dim">"real"</span>
+<span class="text-secondary-fixed-dim">robot:</span> <span class="text-tertiary-fixed-dim">"differential_drive"</span>
+<span class="text-secondary-fixed-dim">hardware:</span> <span class="text-tertiary-fixed-dim">"3we_v1"</span>
+<span class="text-secondary-fixed-dim">e_stop:</span> <span class="text-primary-fixed-dim">true</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- AI Capabilities Bento Grid -->
+<section class="bg-surface-studio py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col items-center text-center gap-4 mb-16">
+  <span class="font-mono text-label-caps text-primary uppercase">AI Integration</span>
+  <h2 class="font-display text-headline-lg">Neural-First Integration</h2>
+  <p class="max-w-2xl text-text-secondary font-body text-body-md">Bridging the gap between VLMs and real-world actuators.</p>
+</div>
+
+<div class="grid grid-cols-12 gap-gutter">
+  <!-- Large Card: VLA Pipeline -->
+  <div class="col-span-12 lg:col-span-8 bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all flex flex-col justify-between">
+    <div>
+      <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-white">neurology</span>
+      </div>
+      <h3 class="font-display text-headline-md mb-4">VLA Deployment Pipeline</h3>
+      <p class="text-text-secondary font-body text-body-md max-w-lg">Map Vision-Language-Action tokens directly to motor velocities. Full support for LeRobot and HuggingFace model architectures with automatic action-space mapping.</p>
+    </div>
+    <div class="mt-8 bg-surface-studio rounded-xl p-6 border border-border-subtle">
+      <div class="flex flex-wrap items-center justify-center gap-4 font-mono text-body-sm">
+        <div class="bg-white px-4 py-2 rounded-lg border border-border-subtle text-primary font-bold">Transformer_v2</div>
+        <span class="material-symbols-outlined text-text-tertiary">arrow_forward</span>
+        <div class="bg-white px-4 py-2 rounded-lg border border-border-subtle text-text-primary font-bold">Joint_States</div>
+        <span class="material-symbols-outlined text-text-tertiary">arrow_forward</span>
+        <div class="bg-primary-container px-4 py-2 rounded-lg border border-primary text-on-primary-container font-bold">Robot_Hardware</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small Card: VLM Navigation -->
+  <div class="col-span-12 lg:col-span-4 bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all">
+    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-6">
+      <span class="material-symbols-outlined text-white">explore</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-4">VLM Navigation</h3>
+    <p class="text-text-secondary font-body text-body-md">Semantic reasoning for complex paths. Vision-language models interpret scene context to generate navigation waypoints through unstructured environments.</p>
+  </div>
+
+  <!-- Medium Card: Gymnasium Environments -->
+  <div class="col-span-12 md:col-span-6 bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all">
+    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-6">
+      <span class="material-symbols-outlined text-white">fitness_center</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-4">Gymnasium Environments</h3>
+    <p class="text-text-secondary font-body text-body-md">Standardized RL training wrappers for all backends. Compatible with Stable Baselines3, CleanRL, and any Gymnasium-compliant algorithm.</p>
+  </div>
+
+  <!-- Medium Card: Trajectory Recording -->
+  <div class="col-span-12 md:col-span-6 bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all">
+    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-6">
+      <span class="material-symbols-outlined text-white">timeline</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-4">Trajectory Recording</h3>
+    <p class="text-text-secondary font-body text-body-md">High-fidelity data logging at 100Hz+ for imitation learning. Record demonstrations in simulation or hardware and replay across backends.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Security & Reliability -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="flex flex-col items-center text-center gap-4 mb-16">
+  <span class="font-mono text-label-caps text-primary uppercase">Safety & Trust</span>
+  <h2 class="font-display text-headline-lg">Industrial Grade Reliability</h2>
+</div>
+
+<div class="grid md:grid-cols-3 gap-gutter">
+  <div class="bg-white p-8 border border-border-subtle rounded-2xl hover:shadow-lg transition-all text-center flex flex-col items-center gap-6">
+    <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px]">emergency_stop</span>
+    </div>
+    <h3 class="font-display text-headline-sm">ISO 13850 E-Stop</h3>
+    <p class="text-body-md text-text-secondary font-body">Redundant signal paths with hardware-level interrupt. Compliant emergency stop with less than 50ms response time across all actuators.</p>
+  </div>
+
+  <div class="bg-white p-8 border border-border-subtle rounded-2xl hover:shadow-lg transition-all text-center flex flex-col items-center gap-6">
+    <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px]">visibility</span>
+    </div>
+    <h3 class="font-display text-headline-sm">3-Level Watchdog</h3>
+    <p class="text-body-md text-text-secondary font-body">MCU, SOC, and Cloud nested monitoring. If any layer fails to heartbeat, the system cascades to a safe state within one control cycle.</p>
+  </div>
+
+  <div class="bg-white p-8 border border-border-subtle rounded-2xl hover:shadow-lg transition-all text-center flex flex-col items-center gap-6">
+    <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px]">encrypted</span>
+    </div>
+    <h3 class="font-display text-headline-sm">DTLS Encryption</h3>
+    <p class="text-body-md text-text-secondary font-body">Secure telemetry with DTLS 1.3 encryption on all robot-to-cloud communication. Mutual authentication prevents unauthorized command injection.</p>
+  </div>
+</div>
+</section>
+
+<!-- Integration Wall -->
+<section class="bg-surface-studio border-y border-border-subtle py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col items-center text-center gap-4 mb-16">
+  <span class="font-mono text-label-caps text-primary uppercase">Integrations</span>
+  <h2 class="font-display text-headline-lg">Ecosystem Compatibility</h2>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-5 gap-gutter">
+  <div class="bg-white p-6 border border-border-subtle rounded-xl flex flex-col items-center gap-3 text-center hover:shadow-md transition-all">
+    <span class="font-display text-headline-sm font-bold text-text-primary">ROS2</span>
+    <span class="font-mono text-label-caps text-text-tertiary uppercase">Jazzy / Humble</span>
+  </div>
+  <div class="bg-white p-6 border border-border-subtle rounded-xl flex flex-col items-center gap-3 text-center hover:shadow-md transition-all">
+    <span class="font-display text-headline-sm font-bold text-text-primary">Gymnasium</span>
+    <span class="font-mono text-label-caps text-text-tertiary uppercase">Standard RL</span>
+  </div>
+  <div class="bg-white p-6 border border-border-subtle rounded-xl flex flex-col items-center gap-3 text-center hover:shadow-md transition-all">
+    <span class="font-display text-headline-sm font-bold text-text-primary">HuggingFace</span>
+    <span class="font-mono text-label-caps text-text-tertiary uppercase">LeRobot</span>
+  </div>
+  <div class="bg-white p-6 border border-border-subtle rounded-xl flex flex-col items-center gap-3 text-center hover:shadow-md transition-all">
+    <span class="font-display text-headline-sm font-bold text-text-primary">NVIDIA</span>
+    <span class="font-mono text-label-caps text-text-tertiary uppercase">Isaac</span>
+  </div>
+  <div class="col-span-2 md:col-span-1 bg-white p-6 border border-border-subtle rounded-xl flex flex-col items-center gap-3 text-center hover:shadow-md transition-all">
+    <span class="font-display text-headline-sm font-bold text-text-primary">Open3D</span>
+    <span class="font-mono text-label-caps text-text-tertiary uppercase">Pointcloud</span>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="bg-text-primary rounded-3xl p-8 md:p-margin-desktop text-white overflow-hidden relative text-center">
+  <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 40px 40px;"></div>
+  <div class="relative z-10 flex flex-col items-center gap-8 max-w-2xl mx-auto">
+    <h2 class="font-display text-headline-lg text-white">Scale from 1 to 1000 Robots.</h2>
+    <p class="font-body text-body-lg text-white/70">From prototype to fleet deployment with the same codebase. No rewrites, no vendor lock-in.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all">
+        Start Developing
+      </a>
+      <a href="/community" class="border border-white/20 bg-white/5 text-white px-8 py-4 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-white/10 transition-all">
+        Contact Engineering
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-subtle py-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter">
+  <div class="col-span-2">
+    <span class="font-display text-headline-sm font-bold text-text-primary mb-4 block">3we</span>
+    <p class="text-body-sm text-text-secondary font-body max-w-xs">AI-First open infrastructure for embodied robotics research and education.</p>
+    <p class="mt-8 text-body-sm text-text-tertiary font-body">&copy; 2025 3we Robotics. Apache 2.0 + CERN-OHL-P v2.</p>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Product</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/product">Platform</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/hardware">Hardware</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://docs.3we.org">Documentation</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Community</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://github.com/telleroutlook/3we-robot-platform">GitHub</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Discussions</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Contributing</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Legal</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">Apache 2.0</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CERN-OHL-P v2</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CC BY-SA 4.0</a></li>
+    </ul>
+  </div>
+</div>
+</footer>
+
+<script>
+// Tab switching logic
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Deactivate all tabs
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('active');
+      b.classList.add('bg-white', 'text-text-secondary');
+    });
+    // Activate clicked tab
+    btn.classList.add('active');
+    btn.classList.remove('bg-white', 'text-text-secondary');
+
+    // Hide all panels
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    // Show target panel
+    const target = btn.getAttribute('data-tab');
+    document.getElementById('panel-' + target).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

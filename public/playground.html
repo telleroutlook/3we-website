@@ -1,0 +1,308 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>3we — Playground</title>
+    <meta
+      name="description"
+      content="Interactive playground for the 3we Robot Platform. Try navigation, perception, and AI tasks in your browser."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body
+    class="bg-background text-text-primary font-body selection:bg-primary-fixed"
+  >
+    <!-- Navigation -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle"
+    >
+      <nav
+        class="max-w-container-max mx-auto px-margin-desktop py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-8">
+          <a
+            href="/"
+            class="font-display text-headline-md font-bold tracking-tighter text-text-primary"
+            >3we</a
+          >
+          <div class="hidden md:flex gap-6">
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="/"
+              >Product</a
+            >
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="/hardware"
+              >Hardware</a
+            >
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="/community"
+              >Community</a
+            >
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="https://docs.3we.org"
+              >Docs</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            href="https://github.com/telleroutlook/3we-robot-platform"
+            class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all"
+            >star</a
+          >
+          <a
+            href="https://docs.3we.org"
+            class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95"
+            >Get Started</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="pt-24 overflow-x-hidden">
+      <!-- Hero Section -->
+      <section
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 lg:py-section-gap flex flex-col items-center text-center gap-8"
+      >
+        <span class="font-mono text-label-caps text-primary uppercase"
+          >Interactive Demo</span
+        >
+        <h1
+          class="font-display text-4xl md:text-headline-xl text-text-primary leading-tight max-w-4xl"
+        >
+          Playground
+        </h1>
+        <p class="font-body text-body-lg text-text-secondary max-w-2xl">
+          Try the 3we Robot Platform directly in your browser. Run navigation
+          tasks, explore environments, and test AI integrations without any
+          installation.
+        </p>
+      </section>
+
+      <!-- Embedded Playground -->
+      <section
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-16"
+      >
+        <div
+          class="border border-border-subtle rounded-xl overflow-hidden bg-white shadow-lg"
+          style="min-height: 600px"
+        >
+          <div
+            class="flex items-center gap-2 px-4 py-3 bg-surface-container-low border-b border-border-subtle"
+          >
+            <div class="flex gap-1.5">
+              <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+            </div>
+            <span class="font-mono text-text-tertiary ml-4 text-sm"
+              >3we Playground — HuggingFace Spaces</span
+            >
+          </div>
+          <div
+            class="flex items-center justify-center p-16 text-center"
+            style="min-height: 550px"
+          >
+            <div class="flex flex-col items-center gap-6">
+              <div
+                class="w-16 h-16 bg-surface-studio rounded-full flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-text-secondary text-3xl"
+                  >smart_toy</span
+                >
+              </div>
+              <h3 class="font-display text-headline-sm text-text-primary">
+                Coming Soon
+              </h3>
+              <p class="text-body-md text-text-secondary max-w-md">
+                The interactive playground is being deployed to HuggingFace
+                Spaces. In the meantime, you can run the full platform locally.
+              </p>
+              <a
+                href="https://docs.3we.org/getting_started_ai/"
+                class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95"
+              >
+                Local Setup Guide
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Local Alternative -->
+      <section
+        class="bg-surface-studio border-y border-border-subtle py-section-gap"
+      >
+        <div
+          class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+        >
+          <div class="flex flex-col items-center text-center gap-4 mb-16">
+            <span class="font-mono text-label-caps text-primary uppercase"
+              >Run Locally</span
+            >
+            <h2 class="font-display text-headline-lg">Quick Start via CLI</h2>
+            <p class="text-body-md text-text-secondary max-w-2xl">
+              Install the Python SDK and run your first navigation task in under
+              2 minutes.
+            </p>
+          </div>
+          <div class="max-w-2xl mx-auto">
+            <div
+              class="bg-code-base rounded-xl overflow-hidden shadow-2xl border border-white/10"
+            >
+              <div
+                class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10"
+              >
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                </div>
+                <span class="font-mono text-white/40 ml-4 text-sm"
+                  >Terminal</span
+                >
+              </div>
+              <div class="p-6">
+                <pre
+                  class="font-mono text-label-code leading-relaxed text-white"
+                ><span class="text-secondary-fixed-dim">$</span> pip install threewe[sim,ai]
+
+<span class="text-secondary-fixed-dim">$</span> python
+<span class="text-white/60">&gt;&gt;&gt;</span> from threewe import Robot
+<span class="text-white/60">&gt;&gt;&gt;</span> robot = Robot(backend="gazebo")
+<span class="text-white/60">&gt;&gt;&gt;</span> robot.move_to(x=2.0, y=1.5)
+<span class="text-tertiary-fixed-dim">NavigationResult(success=True, duration=3.2s)</span>
+
+<span class="text-white/60">&gt;&gt;&gt;</span> robot.navigate_with_vlm("go to the red chair")
+<span class="text-tertiary-fixed-dim">NavigationResult(success=True, duration=8.7s)</span></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest border-t border-border-subtle py-20"
+    >
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter"
+      >
+        <div class="col-span-2">
+          <span
+            class="font-display text-headline-sm font-bold text-text-primary mb-4 block"
+            >3we</span
+          >
+          <p class="text-body-sm text-text-secondary font-body max-w-xs">
+            AI-First open infrastructure for embodied robotics research and
+            education.
+          </p>
+          <p class="mt-8 text-body-sm text-text-tertiary font-body">
+            &copy; 2025 3we Robotics. Apache 2.0 + CERN-OHL-P v2.
+          </p>
+        </div>
+        <div>
+          <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">
+            Product
+          </h5>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/product"
+                >Platform</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/hardware"
+                >Hardware</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="https://docs.3we.org"
+                >Documentation</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">
+            Community
+          </h5>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="https://github.com/telleroutlook/3we-robot-platform"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/community"
+                >Discussions</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/community"
+                >Contributing</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">
+            Legal
+          </h5>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="#"
+                >Apache 2.0</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="#"
+                >CERN-OHL-P v2</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="#"
+                >CC BY-SA 4.0</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

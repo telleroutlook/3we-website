@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing — 3we Robotics Platform</title>
+<meta name="description" content="Choose your 3we hardware configuration. From $120 Basic to $800+ Industrial. 100% open-source — build it yourself or order pre-assembled."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body class="bg-background text-text-primary font-body selection:bg-primary-fixed">
+
+<!-- Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle">
+<nav class="max-w-container-max mx-auto px-margin-desktop py-4 flex justify-between items-center">
+  <div class="flex items-center gap-8">
+    <a href="/" class="font-display text-headline-md font-bold tracking-tighter text-text-primary">3we</a>
+    <div class="hidden md:flex gap-6">
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/">Product</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/hardware">Hardware</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/community">Community</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="https://docs.3we.org">Docs</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="https://github.com/telleroutlook/3we-robot-platform" class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all">star</a>
+    <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95">Get Started</a>
+  </div>
+</nav>
+</header>
+
+<main class="pt-24 overflow-x-hidden">
+
+<!-- Hero -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 text-center">
+  <span class="font-mono text-label-caps text-primary uppercase tracking-widest">Open Source Hardware</span>
+  <h1 class="font-display text-4xl md:text-headline-xl mt-4 mb-6">Choose Your Starting Point</h1>
+  <p class="font-body text-body-lg text-text-secondary max-w-2xl mx-auto">All configurations are 100% open-source. Build it yourself from our BOM or order pre-assembled. Same software stack across all tiers.</p>
+</section>
+
+<!-- Pricing Cards -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
+
+  <!-- Basic -->
+  <div class="bg-white p-8 border border-border-subtle rounded-xl flex flex-col">
+    <span class="font-mono text-label-caps text-text-tertiary mb-2 uppercase">Entry</span>
+    <h3 class="font-display text-headline-md mb-1">Basic</h3>
+    <p class="font-display text-headline-lg text-primary mb-2">~$120</p>
+    <p class="font-mono text-label-caps text-text-tertiary mb-6 uppercase">"Learn the Stack"</p>
+    <p class="font-body text-body-sm text-text-secondary mb-8">ESP32-S3 core with chassis and motors. Ideal for learning embedded robotics and firmware development.</p>
+    <ul class="space-y-3 mb-12 flex-grow">
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> ESP32-S3 (dual-core 240MHz)</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Aluminum chassis</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> 4x DC motors + wheels</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> WiFi connectivity</li>
+      <li class="flex items-center gap-2 text-body-sm font-body text-text-tertiary"><span class="material-symbols-outlined text-sm">close</span> No AI compute</li>
+      <li class="flex items-center gap-2 text-body-sm font-body text-text-tertiary"><span class="material-symbols-outlined text-sm">close</span> No LiDAR/Camera</li>
+    </ul>
+    <a href="/hardware" class="w-full border border-primary text-primary py-3 font-mono text-label-caps uppercase text-center rounded-lg hover:bg-primary/5 transition-colors block">View Bill of Materials</a>
+  </div>
+
+  <!-- Standard (Recommended) -->
+  <div class="bg-white p-8 border-2 border-primary rounded-xl relative flex flex-col shadow-xl -translate-y-4">
+    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 font-mono text-[10px] uppercase tracking-widest rounded-full">Recommended</div>
+    <span class="font-mono text-label-caps text-primary mb-2 uppercase">Research</span>
+    <h3 class="font-display text-headline-md mb-1">Standard</h3>
+    <p class="font-display text-headline-lg text-primary mb-2">~$300</p>
+    <p class="font-mono text-label-caps text-text-tertiary mb-6 uppercase">"Research Ready"</p>
+    <p class="font-body text-body-sm text-text-secondary mb-8">The complete 3we experience. Full sensor suite with AI acceleration for embodied AI research.</p>
+    <ul class="space-y-3 mb-12 flex-grow">
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Raspberry Pi 5 (8GB) + ESP32-S3</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Hailo-8L AI (13 TOPS)</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> LD06 360° LiDAR (12m)</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> 170° Fisheye Camera</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> 4WD Mecanum (omnidirectional)</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> PBC-34 Payload Bus</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> ISO 13850 E-Stop</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> WiFi 6 + BLE 5.0</li>
+    </ul>
+    <a href="/hardware" class="w-full bg-primary-container text-on-primary-container py-3 font-mono text-label-caps uppercase text-center rounded-lg hover:bg-secondary-container transition-colors block font-bold">Configure Build</a>
+  </div>
+
+  <!-- Industrial -->
+  <div class="bg-white p-8 border border-border-subtle rounded-xl flex flex-col">
+    <span class="font-mono text-label-caps text-text-tertiary mb-2 uppercase">Enterprise</span>
+    <h3 class="font-display text-headline-md mb-1">Industrial</h3>
+    <p class="font-display text-headline-lg text-primary mb-2">~$800+</p>
+    <p class="font-mono text-label-caps text-text-tertiary mb-6 uppercase">"Deploy Anywhere"</p>
+    <p class="font-body text-body-sm text-text-secondary mb-8">Heavy-duty build with IP54 protection, industrial sensors, and fleet communication for production environments.</p>
+    <ul class="space-y-3 mb-12 flex-grow">
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Pi 5 + Jetson Nano</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Hailo-8L or Jetson GPU</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Industrial LiDAR (40m)</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Stereo + Depth Camera</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> IP54 Protection</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> 5G + CAN bus</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> 15kg payload capacity</li>
+      <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Fleet OTA updates</li>
+    </ul>
+    <a href="/community" class="w-full border border-primary text-primary py-3 font-mono text-label-caps uppercase text-center rounded-lg hover:bg-primary/5 transition-colors block">Contact for Fleet Pricing</a>
+  </div>
+
+</div>
+</section>
+
+<!-- DIY vs Pre-built -->
+<section class="bg-surface-studio border-y border-border-subtle py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+  <h2 class="font-display text-headline-lg text-center mb-16">Build It or Buy It</h2>
+  <div class="grid md:grid-cols-2 gap-gutter">
+    <div class="bg-white p-8 border border-border-subtle rounded-xl">
+      <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-primary">construction</span>
+      </div>
+      <h3 class="font-display text-headline-sm mb-4">DIY Build</h3>
+      <p class="font-body text-body-md text-text-secondary mb-6">Source components yourself using our complete BOM with supplier links. Learn by building — understand every wire and connection.</p>
+      <ul class="space-y-3 mb-8">
+        <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> 20-40% cheaper</li>
+        <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Deep hardware understanding</li>
+        <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Customize during assembly</li>
+        <li class="flex items-center gap-2 text-body-sm font-body text-text-tertiary"><span class="material-symbols-outlined text-sm">schedule</span> 4-8 hours assembly time</li>
+      </ul>
+      <a href="/hardware" class="inline-flex items-center gap-2 text-primary font-mono text-label-caps uppercase font-bold hover:underline">View Assembly Guide <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+    </div>
+    <div class="bg-white p-8 border border-border-subtle rounded-xl">
+      <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-primary">package_2</span>
+      </div>
+      <h3 class="font-display text-headline-sm mb-4">Pre-Assembled</h3>
+      <p class="font-body text-body-md text-text-secondary mb-6">Receive a fully tested, calibrated robot ready to run. Unbox, power on, and start your first experiment immediately.</p>
+      <ul class="space-y-3 mb-8">
+        <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Ready in 5 minutes</li>
+        <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Factory calibrated sensors</li>
+        <li class="flex items-center gap-2 text-body-sm font-body"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Quality tested</li>
+        <li class="flex items-center gap-2 text-body-sm font-body text-text-tertiary"><span class="material-symbols-outlined text-sm">schedule</span> 2-4 weeks lead time</li>
+      </ul>
+      <a href="/community" class="inline-flex items-center gap-2 text-primary font-mono text-label-caps uppercase font-bold hover:underline">Inquire About Availability <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<h2 class="font-display text-headline-lg text-center mb-16">Frequently Asked Questions</h2>
+<div class="max-w-3xl mx-auto space-y-6">
+
+  <div class="border border-border-subtle rounded-xl p-6 bg-white">
+    <h4 class="font-display text-headline-sm text-lg mb-2">Can I mix components from different SKUs?</h4>
+    <p class="font-body text-body-md text-text-secondary">Absolutely. The BOM is modular — start with Basic and add LiDAR, camera, or AI acceleration later. The PBC-34 bus makes upgrades plug-and-play.</p>
+  </div>
+
+  <div class="border border-border-subtle rounded-xl p-6 bg-white">
+    <h4 class="font-display text-headline-sm text-lg mb-2">Where can I buy the components?</h4>
+    <p class="font-body text-body-md text-text-secondary">Our BOM includes direct links to AliExpress, Mouser, and DigiKey for every part. Most components are globally available with 1-2 week shipping.</p>
+  </div>
+
+  <div class="border border-border-subtle rounded-xl p-6 bg-white">
+    <h4 class="font-display text-headline-sm text-lg mb-2">Do you ship pre-assembled units internationally?</h4>
+    <p class="font-body text-body-md text-text-secondary">Pre-assembled units ship worldwide. Contact us for shipping estimates and bulk pricing for labs and educational institutions.</p>
+  </div>
+
+  <div class="border border-border-subtle rounded-xl p-6 bg-white">
+    <h4 class="font-display text-headline-sm text-lg mb-2">What software is included?</h4>
+    <p class="font-body text-body-md text-text-secondary">All SKUs use the same <code class="font-mono bg-surface-container px-1 rounded text-sm">threewe</code> Python SDK. The full software stack (firmware, ROS2 nodes, SDK, Gymnasium environments) is free and open-source regardless of hardware tier.</p>
+  </div>
+
+  <div class="border border-border-subtle rounded-xl p-6 bg-white">
+    <h4 class="font-display text-headline-sm text-lg mb-2">Is this suitable for outdoor use?</h4>
+    <p class="font-body text-body-md text-text-secondary">The Basic and Standard tiers are designed for indoor environments. The Industrial tier with IP54 protection supports light outdoor use (dust and splash resistant).</p>
+  </div>
+
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-subtle py-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter">
+  <div class="col-span-2">
+    <span class="font-display text-headline-sm font-bold text-text-primary mb-4 block">3we</span>
+    <p class="text-body-sm text-text-secondary font-body max-w-xs">AI-First open infrastructure for embodied robotics research and education.</p>
+    <p class="mt-8 text-body-sm text-text-tertiary font-body">&copy; 2025 3we Robotics. Apache 2.0 + CERN-OHL-P v2.</p>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Product</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/product">Platform</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/hardware">Hardware</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://docs.3we.org">Documentation</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Community</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://github.com/telleroutlook/3we-robot-platform">GitHub</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Discussions</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Contributing</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Legal</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">Apache 2.0</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CERN-OHL-P v2</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CC BY-SA 4.0</a></li>
+    </ul>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>

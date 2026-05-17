@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Research Paper — 3we: An Open Platform for Sim-to-Real Embodied AI Research</title>
+<meta name="description" content="3we: An Open Platform for Sim-to-Real Embodied AI Research. Download the paper, view benchmark results, and reproduce our experiments."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body class="bg-background text-text-primary font-body selection:bg-primary-fixed">
+
+<!-- Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle">
+<nav class="max-w-container-max mx-auto px-margin-desktop py-4 flex justify-between items-center">
+  <div class="flex items-center gap-8">
+    <a href="/" class="font-display text-headline-md font-bold tracking-tighter text-text-primary">3we</a>
+    <div class="hidden md:flex gap-6">
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 font-mono text-label-caps uppercase" href="/">Product</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/hardware">Hardware</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/community">Community</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="https://docs.3we.org">Docs</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="https://github.com/telleroutlook/3we-robot-platform" class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all">star</a>
+    <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95">Get Started</a>
+  </div>
+</nav>
+</header>
+
+<main class="pt-24 overflow-x-hidden">
+
+<!-- Paper Hero -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 lg:py-section-gap flex flex-col items-center text-center gap-6">
+  <span class="font-mono text-label-caps text-primary uppercase">Research Paper</span>
+  <h1 class="font-display text-3xl md:text-headline-xl text-text-primary leading-tight max-w-4xl">
+    3we: An Open Platform for Sim-to-Real Embodied AI Research
+  </h1>
+  <p class="font-body text-body-lg text-text-secondary">3we Research Team</p>
+  <div class="flex flex-wrap gap-4 justify-center mt-4">
+    <a href="#" class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all inline-flex items-center gap-2">
+      <span class="material-symbols-outlined text-[18px]">download</span>
+      Download PDF
+    </a>
+    <a href="#" class="border border-border-subtle bg-surface-container-lowest px-8 py-4 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-surface-container transition-all inline-flex items-center gap-2">
+      <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+      View on arXiv
+    </a>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap">
+<div class="max-w-3xl mx-auto">
+  <h2 class="font-display text-headline-md mb-6">Abstract</h2>
+  <p class="font-body text-body-md text-text-secondary leading-relaxed">
+    We present 3we, an open-source platform that unifies simulation and real-world deployment for embodied AI research. The platform introduces a backend abstraction layer that enables identical Python code to execute across four interchangeable environments: a zero-dependency mock simulator, Gazebo Harmonic for physics-accurate simulation, NVIDIA Isaac Sim for GPU-accelerated parallel training, and physical hardware based on Raspberry Pi 5 with ESP32-S3 controllers. Combined with reproducible open hardware costing under $500 and standardized Gymnasium environments, 3we eliminates the three primary barriers to embodied AI research: prohibitive hardware costs, sim-to-real transfer complexity, and lack of reproducible benchmarks. We demonstrate that policies trained in simulation transfer to real hardware with zero code modifications, achieving 85%+ success rates on navigation tasks. The platform includes three standardized benchmark tasks (PointNav, ObjectNav, Exploration) evaluated across 8 scenes with a public leaderboard.
+  </p>
+</div>
+</section>
+
+<!-- Key Contributions -->
+<section class="bg-surface-studio border-y border-border-subtle py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-3xl mx-auto">
+  <h2 class="font-display text-headline-md mb-8">Key Contributions</h2>
+  <ol class="space-y-5">
+    <li class="flex gap-4">
+      <span class="font-mono text-primary-container font-bold text-body-lg shrink-0">1.</span>
+      <p class="font-body text-body-md text-text-secondary">Backend abstraction layer enabling zero-modification sim-to-real transfer</p>
+    </li>
+    <li class="flex gap-4">
+      <span class="font-mono text-primary-container font-bold text-body-lg shrink-0">2.</span>
+      <p class="font-body text-body-md text-text-secondary">Open hardware design (&lt;$500) with full BOM, PCB schematics, and assembly guides</p>
+    </li>
+    <li class="flex gap-4">
+      <span class="font-mono text-primary-container font-bold text-body-lg shrink-0">3.</span>
+      <p class="font-body text-body-md text-text-secondary">AI-First Python API reducing code complexity by 12x compared to raw ROS2</p>
+    </li>
+    <li class="flex gap-4">
+      <span class="font-mono text-primary-container font-bold text-body-lg shrink-0">4.</span>
+      <p class="font-body text-body-md text-text-secondary">Standardized Gymnasium environments for embodied AI benchmarking</p>
+    </li>
+    <li class="flex gap-4">
+      <span class="font-mono text-primary-container font-bold text-body-lg shrink-0">5.</span>
+      <p class="font-body text-body-md text-text-secondary">PBC-34 hot-plug payload bus for modular hardware extension</p>
+    </li>
+  </ol>
+</div>
+</div>
+</section>
+
+<!-- Architecture Figure -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="max-w-3xl mx-auto">
+  <div class="bg-surface-studio border border-border-subtle rounded-xl h-[300px] flex items-center justify-center">
+    <div class="text-center px-4">
+      <span class="material-symbols-outlined text-text-tertiary text-[48px] mb-4 block">schema</span>
+      <p class="font-mono text-body-sm text-text-secondary">Figure 1: System Architecture — Backend Abstraction Layer</p>
+    </div>
+  </div>
+  <p class="font-body text-body-sm text-text-tertiary text-center mt-4">
+    The three-layer architecture: Application Layer (Python API + Gymnasium environments), Backend Abstraction Layer (unified interface), and Execution Layer (Mock, Gazebo, Isaac Sim, Real Hardware).
+  </p>
+</div>
+</section>
+
+<!-- Benchmark Results -->
+<section class="bg-surface-studio border-y border-border-subtle py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-3xl mx-auto">
+  <h2 class="font-display text-headline-md mb-8">Benchmark Results</h2>
+  <div class="overflow-x-auto border border-border-subtle rounded-lg">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-surface-container-low border-b border-border-subtle">
+          <th class="px-6 py-4 font-mono text-label-caps uppercase">Task</th>
+          <th class="px-6 py-4 font-mono text-label-caps uppercase">Backend</th>
+          <th class="px-6 py-4 font-mono text-label-caps uppercase">SR (%)</th>
+          <th class="px-6 py-4 font-mono text-label-caps uppercase">SPL</th>
+        </tr>
+      </thead>
+      <tbody class="font-body text-body-sm divide-y divide-border-subtle">
+        <tr>
+          <td class="px-6 py-4 font-medium">PointNav</td>
+          <td class="px-6 py-4">Mock</td>
+          <td class="px-6 py-4">98.2</td>
+          <td class="px-6 py-4">0.94</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4 font-medium">PointNav</td>
+          <td class="px-6 py-4">Gazebo</td>
+          <td class="px-6 py-4">91.5</td>
+          <td class="px-6 py-4">0.87</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4 font-medium">PointNav</td>
+          <td class="px-6 py-4 text-primary font-medium">Real</td>
+          <td class="px-6 py-4 text-primary font-bold">85.3</td>
+          <td class="px-6 py-4">0.79</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4 font-medium">ObjectNav</td>
+          <td class="px-6 py-4">Gazebo</td>
+          <td class="px-6 py-4">72.1</td>
+          <td class="px-6 py-4">0.65</td>
+        </tr>
+        <tr>
+          <td class="px-6 py-4 font-medium">Exploration</td>
+          <td class="px-6 py-4">Gazebo</td>
+          <td class="px-6 py-4">88.7</td>
+          <td class="px-6 py-4">&mdash;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Citation -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="max-w-3xl mx-auto">
+  <h2 class="font-display text-headline-md mb-8">Citation</h2>
+  <div class="bg-code-base rounded-xl overflow-hidden border border-white/10 relative">
+    <div class="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
+      <span class="font-mono text-white/40 text-sm">BibTeX</span>
+      <button onclick="navigator.clipboard.writeText(document.getElementById('bibtex').textContent)" class="material-symbols-outlined text-white/40 text-[18px] cursor-pointer hover:text-white transition-colors">content_copy</button>
+    </div>
+    <div class="p-6">
+<pre id="bibtex" class="font-mono text-label-code leading-relaxed text-white/90 overflow-x-auto">@article{3we2025,
+  title={3we: An Open Platform for Sim-to-Real Embodied AI Research},
+  author={3we Research Team},
+  journal={arXiv preprint},
+  year={2025},
+  url={https://github.com/telleroutlook/3we-robot-platform}
+}</pre>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Reproduce -->
+<section class="bg-surface-studio border-y border-border-subtle py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-3xl mx-auto">
+  <h2 class="font-display text-headline-md mb-8">Reproduce Our Results</h2>
+  <div class="bg-code-base rounded-xl overflow-hidden border border-white/10">
+    <div class="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
+      <span class="font-mono text-white/40 text-sm">Terminal</span>
+      <button onclick="navigator.clipboard.writeText('pip install threewe\nthreewe benchmark run --task pointnav --episodes 100 --backend gazebo')" class="material-symbols-outlined text-white/40 text-[18px] cursor-pointer hover:text-white transition-colors">content_copy</button>
+    </div>
+    <div class="p-6">
+<pre class="font-mono text-label-code leading-relaxed text-white/90"><span class="text-secondary-fixed-dim">$</span> pip install threewe
+<span class="text-secondary-fixed-dim">$</span> threewe benchmark run --task pointnav --episodes 100 --backend gazebo</pre>
+    </div>
+  </div>
+  <a href="https://github.com/telleroutlook/3we-robot-platform" class="inline-flex items-center gap-2 mt-6 font-mono text-label-caps text-primary uppercase hover:text-on-primary-container transition-colors">
+    View all benchmark code on GitHub
+    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+  </a>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-subtle py-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter">
+  <div class="col-span-2">
+    <span class="font-display text-headline-sm font-bold text-text-primary mb-4 block">3we</span>
+    <p class="text-body-sm text-text-secondary font-body max-w-xs">AI-First open infrastructure for embodied robotics research and education.</p>
+    <p class="mt-8 text-body-sm text-text-tertiary font-body">&copy; 2025 3we Robotics. Apache 2.0 + CERN-OHL-P v2.</p>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Product</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/product">Platform</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/hardware">Hardware</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://docs.3we.org">Documentation</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Community</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://github.com/telleroutlook/3we-robot-platform">GitHub</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Discussions</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Contributing</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Legal</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">Apache 2.0</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CERN-OHL-P v2</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CC BY-SA 4.0</a></li>
+    </ul>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3we — AI-First Open Platform for Embodied Robotics</title>
+<meta name="description" content="Run the same Python code from simulation to real hardware. Open-source robot platform under $500 with 4 interchangeable backends."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body class="bg-background text-text-primary font-body selection:bg-primary-fixed">
+
+<!-- Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle">
+<nav class="max-w-container-max mx-auto px-margin-desktop py-4 flex justify-between items-center">
+  <div class="flex items-center gap-8">
+    <a href="/" class="font-display text-headline-md font-bold tracking-tighter text-text-primary">3we</a>
+    <div class="hidden md:flex gap-6">
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 font-mono text-label-caps uppercase" href="/">Product</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/hardware">Hardware</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/community">Community</a>
+      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="https://docs.3we.org">Docs</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="https://github.com/telleroutlook/3we-robot-platform" class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all">star</a>
+    <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95">Get Started</a>
+  </div>
+</nav>
+</header>
+
+<main class="pt-24 overflow-x-hidden">
+
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 lg:py-section-gap grid lg:grid-cols-2 gap-gutter items-center">
+  <div class="flex flex-col gap-8">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high w-fit rounded-full">
+      <span class="w-2 h-2 bg-tertiary-container rounded-full animate-pulse"></span>
+      <span class="font-mono text-[10px] text-primary uppercase tracking-widest">Python 3.10+ · Apache 2.0</span>
+    </div>
+    <h1 class="font-display text-4xl md:text-headline-xl text-text-primary leading-tight">
+      AI-First Open Platform for <span class="text-primary-container">Embodied Robotics</span>
+    </h1>
+    <p class="font-body text-body-lg text-text-secondary max-w-lg">
+      Run the same Python code from simulation to real hardware. 5 lines of code to start your first robot. Under $500 reproducible hardware.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all">
+        Get Started
+      </a>
+      <a href="https://github.com/telleroutlook/3we-robot-platform" class="border border-border-subtle bg-surface-container-lowest px-8 py-4 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-surface-container transition-all">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+  <!-- Code Window -->
+  <div class="relative">
+    <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 blur-[100px] rounded-full z-0"></div>
+    <div class="bg-code-base rounded-xl overflow-hidden shadow-2xl relative z-10 border border-white/10">
+      <div class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+        </div>
+        <span class="font-mono text-white/40 ml-4 text-sm">navigate_office.py</span>
+      </div>
+      <div class="p-6">
+<pre class="font-mono text-label-code leading-relaxed text-white"><span class="text-secondary-fixed-dim">from</span> threewe <span class="text-secondary-fixed-dim">import</span> Robot
+
+<span class="text-secondary-fixed-dim">async with</span> Robot(backend=<span class="text-tertiary-fixed-dim">"gazebo"</span>) <span class="text-secondary-fixed-dim">as</span> robot:
+    image = robot.get_camera_image()
+    <span class="text-secondary-fixed-dim">await</span> robot.move_to(x=<span class="text-primary-fixed-dim">2.0</span>, y=<span class="text-primary-fixed-dim">1.0</span>)
+    pose = robot.get_pose()</pre>
+      </div>
+    </div>
+    <!-- Sim2Real Overlay -->
+    <div class="absolute -bottom-6 -left-6 bg-surface p-4 border border-border-subtle rounded-lg shadow-lg z-20 flex flex-col gap-1">
+      <span class="font-mono text-primary text-[10px] uppercase tracking-widest">Sim2Real Transfer</span>
+      <div class="flex items-end gap-1 h-8">
+        <div class="w-2 bg-primary/20 h-[40%] rounded-sm"></div>
+        <div class="w-2 bg-primary/40 h-[60%] rounded-sm"></div>
+        <div class="w-2 bg-primary/60 h-[80%] rounded-sm"></div>
+        <div class="w-2 bg-primary h-[95%] rounded-sm"></div>
+      </div>
+      <span class="font-mono text-text-primary text-xs mt-1">Zero Code Changes</span>
+    </div>
+  </div>
+</section>
+
+<!-- Metrics Bar -->
+<section class="bg-surface-studio border-y border-border-subtle">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 grid grid-cols-2 md:grid-cols-4 gap-gutter text-center md:text-left">
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">&lt;$500</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">Hardware Cost</span>
+  </div>
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">5</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">Lines to Start</span>
+  </div>
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">4</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">Sim Backends</span>
+  </div>
+  <div class="flex flex-col gap-2">
+    <span class="font-mono text-headline-md text-text-primary">12x</span>
+    <span class="font-mono text-label-caps text-text-secondary uppercase">Less Code vs ROS2</span>
+  </div>
+</div>
+</section>
+
+<!-- Backend Architecture -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="flex flex-col items-center text-center gap-4 mb-20">
+  <span class="font-mono text-label-caps text-primary uppercase">Unified Backend Architecture</span>
+  <h2 class="font-display text-headline-lg">Seamless Simulation-to-Real Pipeline</h2>
+  <p class="max-w-2xl text-text-secondary font-body text-body-md">Switch between physics engines and real hardware with a single parameter. The same API runs across Mock, Gazebo Harmonic, NVIDIA Isaac Sim, and physical robots.</p>
+</div>
+<div class="relative grid md:grid-cols-4 gap-4">
+  <div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-border-subtle -translate-y-1/2 z-0"></div>
+
+  <div class="relative z-10 bg-white p-8 border border-border-subtle rounded-xl hover:border-primary-container transition-all group">
+    <div class="w-12 h-12 bg-surface-studio rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/10 transition-colors">
+      <span class="material-symbols-outlined text-text-secondary group-hover:text-primary">bug_report</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-2">Mock</h3>
+    <p class="text-body-sm text-text-secondary font-body">Zero dependencies. Pure NumPy 2D kinematic simulation for unit tests and CI/CD.</p>
+  </div>
+
+  <div class="relative z-10 bg-white p-8 border border-border-subtle rounded-xl hover:border-primary-container transition-all group">
+    <div class="w-12 h-12 bg-surface-studio rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/10 transition-colors">
+      <span class="material-symbols-outlined text-text-secondary group-hover:text-primary">view_in_ar</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-2">Gazebo</h3>
+    <p class="text-body-sm text-text-secondary font-body">Gazebo Harmonic with Nav2 and SLAM. CPU-based physics simulation.</p>
+  </div>
+
+  <div class="relative z-10 bg-white p-8 border border-border-subtle rounded-xl hover:border-primary-container transition-all group">
+    <div class="w-12 h-12 bg-surface-studio rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/10 transition-colors">
+      <span class="material-symbols-outlined text-text-secondary group-hover:text-primary">auto_awesome_motion</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-2">Isaac Sim</h3>
+    <p class="text-body-sm text-text-secondary font-body">NVIDIA GPU-accelerated parallel RL training with domain randomization.</p>
+  </div>
+
+  <div class="relative z-10 bg-primary-container p-8 border border-primary rounded-xl shadow-xl shadow-primary-container/20">
+    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-6">
+      <span class="material-symbols-outlined text-white">precision_manufacturing</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-2 text-on-primary-container">Real Hardware</h3>
+    <p class="text-body-sm text-on-primary-container/80 font-body">Raspberry Pi 5 + ESP32-S3 + Hailo-8L. ROS2 Jazzy at 50Hz control loop.</p>
+  </div>
+</div>
+</section>
+
+<!-- Features Bento Grid -->
+<section class="bg-surface-studio py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid lg:grid-cols-3 gap-gutter">
+  <!-- Feature 1: Main -->
+  <div class="lg:col-span-2 bg-white p-8 md:p-12 border border-border-subtle rounded-2xl flex flex-col justify-between group hover:shadow-lg transition-all">
+    <div>
+      <span class="font-mono text-label-caps text-primary mb-4 block uppercase">Core Technology</span>
+      <h3 class="font-display text-headline-md mb-4">Sim2Real Zero-Modification</h3>
+      <p class="text-text-secondary font-body text-body-md max-w-md">Our backend abstraction eliminates the reality gap. The same Python API runs identically across all four backends—switch with a single parameter change, no code modifications needed.</p>
+    </div>
+    <div class="mt-12 h-48 bg-surface-studio rounded-xl relative overflow-hidden border border-border-subtle">
+      <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#e8a020 1px, transparent 1px); background-size: 20px 20px;"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="font-mono text-sm text-text-secondary bg-white/80 p-4 rounded-lg border border-border-subtle">
+          <code>Robot(backend=<span class="text-primary">"mock"</span>)</code> → <code>Robot(backend=<span class="text-primary">"real"</span>)</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2 -->
+  <div class="bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all">
+    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-8">
+      <span class="material-symbols-outlined text-white">psychology</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-4">AI-First API</h3>
+    <p class="text-body-md text-text-secondary font-body">Designed for transformer architectures. Tokenize sensor inputs and map action spaces directly to VLM/VLA outputs. No ROS2 knowledge required.</p>
+  </div>
+
+  <!-- Feature 3 -->
+  <div class="bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all">
+    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-8">
+      <span class="material-symbols-outlined text-white">account_balance</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-4">Open Hardware &lt;$500</h3>
+    <p class="text-body-md text-text-secondary font-body">Complete BOM, KiCad PCB schematics, STEP models, and assembly guides. Licensed under CERN-OHL-P v2 for full reproducibility.</p>
+  </div>
+
+  <!-- Feature 4 -->
+  <div class="bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all">
+    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-8">
+      <span class="material-symbols-outlined text-white">fitness_center</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-4">Gymnasium Ready</h3>
+    <p class="text-body-md text-text-secondary font-body">Standard OpenAI Gymnasium environments: Navigation, ObjectNav, Exploration, and VLN. Use your existing RL pipelines and Stable Baselines3.</p>
+  </div>
+
+  <!-- Feature 5 -->
+  <div class="bg-white p-8 md:p-12 border border-border-subtle rounded-2xl hover:shadow-lg transition-all">
+    <div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-8">
+      <span class="material-symbols-outlined text-white">schema</span>
+    </div>
+    <h3 class="font-display text-headline-sm mb-4">VLM/VLA Integration</h3>
+    <p class="text-body-md text-text-secondary font-body">Native support for GPT-4o, Qwen-VL, and custom VLA policies. One-line instruction execution: <code class="bg-surface-container px-1 rounded">robot.execute_instruction("find the door")</code></p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- 30s Quick Start -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="bg-text-primary rounded-3xl p-8 md:p-margin-desktop text-white overflow-hidden relative">
+  <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 40px 40px;"></div>
+  <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+    <div class="flex-1 space-y-6">
+      <span class="font-mono text-label-caps text-primary-container uppercase">Quickstart Guide</span>
+      <h2 class="font-display text-headline-lg">From Zero to Robot in 30s</h2>
+      <div class="space-y-4">
+        <div class="flex gap-4">
+          <span class="font-mono text-primary-container">01</span>
+          <p class="font-body">Install the SDK via pip</p>
+        </div>
+        <div class="flex gap-4">
+          <span class="font-mono text-primary-container">02</span>
+          <p class="font-body">Choose your backend (mock for instant start)</p>
+        </div>
+        <div class="flex gap-4">
+          <span class="font-mono text-primary-container">03</span>
+          <p class="font-body">Run your first navigation script</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 w-full">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6 font-mono text-sm">
+        <div class="flex justify-between items-center mb-4 text-white/40">
+          <span>Terminal</span>
+          <span class="material-symbols-outlined text-xs cursor-pointer hover:text-white">content_copy</span>
+        </div>
+        <div class="text-secondary-fixed-dim">$ pip install threewe</div>
+        <div class="text-white/60">... collecting packages</div>
+        <div class="text-tertiary-fixed-dim">Successfully installed threewe-1.0.4</div>
+        <div class="text-secondary-fixed-dim mt-4">$ python navigate_office.py</div>
+        <div class="text-white/60">[INFO] Backend: mock initialized</div>
+        <div class="text-white/60">[INFO] Robot active at (0.0, 0.0)</div>
+        <div class="text-tertiary-fixed-dim">[OK] Navigation complete → (2.0, 1.0)</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Comparison Table -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap">
+<div class="text-center mb-12">
+  <h2 class="font-display text-headline-lg mb-4">How 3we Compares</h2>
+  <p class="text-text-secondary font-body text-body-md">The only platform combining full open hardware with production-grade AI integration.</p>
+</div>
+<div class="overflow-x-auto border border-border-subtle rounded-lg">
+<table class="w-full text-left border-collapse min-w-[700px]">
+  <thead>
+    <tr class="bg-surface-container-low border-b border-border-subtle">
+      <th class="px-6 py-4 font-mono text-label-caps uppercase">Feature</th>
+      <th class="px-6 py-4 font-mono text-label-caps uppercase text-primary">3we</th>
+      <th class="px-6 py-4 font-mono text-label-caps uppercase">TurtleBot 4</th>
+      <th class="px-6 py-4 font-mono text-label-caps uppercase">ROSbot XL</th>
+      <th class="px-6 py-4 font-mono text-label-caps uppercase">JetBot</th>
+    </tr>
+  </thead>
+  <tbody class="font-body text-body-sm divide-y divide-border-subtle">
+    <tr>
+      <td class="px-6 py-4 font-medium">Python API (no ROS)</td>
+      <td class="px-6 py-4 text-tertiary">&#10003;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+    </tr>
+    <tr>
+      <td class="px-6 py-4 font-medium">Sim2Real Zero Modification</td>
+      <td class="px-6 py-4 text-tertiary">&#10003;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+    </tr>
+    <tr>
+      <td class="px-6 py-4 font-medium">Open PCB + BOM</td>
+      <td class="px-6 py-4 text-tertiary">&#10003; Full</td>
+      <td class="px-6 py-4 text-error">Closed</td>
+      <td class="px-6 py-4 text-error">Closed</td>
+      <td class="px-6 py-4 text-text-tertiary">Partial</td>
+    </tr>
+    <tr>
+      <td class="px-6 py-4 font-medium">Gymnasium Interface</td>
+      <td class="px-6 py-4 text-tertiary">&#10003;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+    </tr>
+    <tr>
+      <td class="px-6 py-4 font-medium">VLM/VLA Native</td>
+      <td class="px-6 py-4 text-tertiary">&#10003;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+      <td class="px-6 py-4 text-error">&#10007;</td>
+    </tr>
+    <tr>
+      <td class="px-6 py-4 font-medium">Hardware Cost</td>
+      <td class="px-6 py-4 font-bold text-primary">&lt;$500</td>
+      <td class="px-6 py-4">~$1,200</td>
+      <td class="px-6 py-4">~$2,800</td>
+      <td class="px-6 py-4">~$250</td>
+    </tr>
+    <tr>
+      <td class="px-6 py-4 font-medium">Safety (E-Stop)</td>
+      <td class="px-6 py-4 text-tertiary">ISO 13850</td>
+      <td class="px-6 py-4 text-text-tertiary">Software</td>
+      <td class="px-6 py-4 text-error">None</td>
+      <td class="px-6 py-4 text-error">None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<!-- Audience Segments -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap">
+<h2 class="font-display text-headline-lg text-center mb-16">Built for the Ecosystem</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+  <div class="flex flex-col gap-4 text-center p-6 bg-white border border-border-subtle rounded-xl hover:shadow-md transition-all">
+    <div class="w-16 h-16 mx-auto bg-surface-container rounded-full flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary">science</span>
+    </div>
+    <h4 class="font-display text-headline-sm">AI Researchers</h4>
+    <p class="text-body-sm text-text-secondary font-body">Gymnasium environments + VLM integration. Train in Isaac Sim, deploy to hardware in minutes.</p>
+  </div>
+  <div class="flex flex-col gap-4 text-center p-6 bg-white border border-border-subtle rounded-xl hover:shadow-md transition-all">
+    <div class="w-16 h-16 mx-auto bg-surface-container rounded-full flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary">school</span>
+    </div>
+    <h4 class="font-display text-headline-sm">Students</h4>
+    <p class="text-body-sm text-text-secondary font-body">Learn embodied AI without ROS2 complexity. Full stack from ESP32 firmware to Python policies.</p>
+  </div>
+  <div class="flex flex-col gap-4 text-center p-6 bg-white border border-border-subtle rounded-xl hover:shadow-md transition-all">
+    <div class="w-16 h-16 mx-auto bg-surface-container rounded-full flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary">developer_board</span>
+    </div>
+    <h4 class="font-display text-headline-sm">RL Practitioners</h4>
+    <p class="text-body-sm text-text-secondary font-body">Standard Gymnasium wrappers, PPO/SAC ready. Benchmark on the public leaderboard.</p>
+  </div>
+  <div class="flex flex-col gap-4 text-center p-6 bg-white border border-border-subtle rounded-xl hover:shadow-md transition-all">
+    <div class="w-16 h-16 mx-auto bg-surface-container rounded-full flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary">handyman</span>
+    </div>
+    <h4 class="font-display text-headline-sm">Hardware Makers</h4>
+    <p class="text-body-sm text-text-secondary font-body">Fork the open PCB design. PBC-34 hot-plug bus for custom sensor payloads.</p>
+  </div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-subtle py-20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter">
+  <div class="col-span-2">
+    <span class="font-display text-headline-sm font-bold text-text-primary mb-4 block">3we</span>
+    <p class="text-body-sm text-text-secondary font-body max-w-xs">AI-First open infrastructure for embodied robotics research and education.</p>
+    <p class="mt-8 text-body-sm text-text-tertiary font-body">&copy; 2025 3we Robotics. Apache 2.0 + CERN-OHL-P v2.</p>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Product</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/product">Platform</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/hardware">Hardware</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://docs.3we.org">Documentation</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Community</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://github.com/telleroutlook/3we-robot-platform">GitHub</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Discussions</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Contributing</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Legal</h5>
+    <ul class="flex flex-col gap-4">
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">Apache 2.0</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CERN-OHL-P v2</a></li>
+      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CC BY-SA 4.0</a></li>
+    </ul>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>
