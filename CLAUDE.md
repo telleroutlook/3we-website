@@ -29,11 +29,38 @@ This website repo and the main platform repo (`3we-robot-platform`) have clearly
 
 ## Build & Deploy
 
+### Website (this repo)
+
 ```bash
 npm run build        # Fetch leaderboard JSON + compile Tailwind CSS
 npm run deploy       # Build + deploy to Cloudflare Pages
 npm run dev          # Local dev with CSS watch + wrangler dev server
 ```
+
+- **Cloudflare Pages project:** `3we-website`
+- **Production URL:** https://3we-website.pages.dev (custom domain pending)
+- **Deploy trigger:** Manual via `npm run deploy`
+- **Build output:** `public/` directory
+
+### Documentation site (main repo)
+
+```bash
+cd /path/to/3we-robot-platform
+python3 -m mkdocs build --strict              # Build docs site to site/
+npx wrangler pages deploy site --project-name=3we-docs --branch=main  # Deploy
+```
+
+- **Cloudflare Pages project:** `3we-docs`
+- **Production URL:** https://3we-docs.pages.dev → `docs.3we.org` (custom domain)
+- **Deploy trigger:** Manual via wrangler after docs/ or SDK source changes
+- **Build output:** `site/` directory (MkDocs generates from `docs/` markdown)
+
+### Deployment checklist
+
+When making changes that affect both repos, deploy in this order:
+1. Push `3we-robot-platform` first (leaderboard JSON, docs content)
+2. Deploy docs site: `python3 -m mkdocs build --strict && npx wrangler pages deploy site --project-name=3we-docs --branch=main`
+3. Deploy website: `cd 3we-website && npm run deploy` (fetches latest leaderboard JSON from GitHub)
 
 ## File Structure
 
