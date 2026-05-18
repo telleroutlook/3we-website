@@ -55,7 +55,7 @@
   nav a.material-symbols-outlined { padding: 8px; margin: -8px; }
 }
 
-/* Mobile drawer — hidden by default, shown when [data-mobile-menu="open"] is set on <html> */
+/* Mobile drawer — hidden by default, shown when html.menu-open is set */
 .mobile-menu {
   position: fixed;
   inset: 64px 0 0 0;
@@ -67,15 +67,15 @@
   transition: opacity 180ms ease, transform 180ms ease;
   z-index: 49;
 }
-html[data-mobile-menu="open"] .mobile-menu {
+html.menu-open .mobile-menu {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
-html[data-mobile-menu="open"] body { overflow: hidden; }
+html.menu-open body { overflow: hidden; }
 .mobile-menu-toggle .icon-close { display: none; }
-html[data-mobile-menu="open"] .mobile-menu-toggle .icon-open { display: none; }
-html[data-mobile-menu="open"] .mobile-menu-toggle .icon-close { display: inline-block; }
+html.menu-open .mobile-menu-toggle .icon-open { display: none; }
+html.menu-open .mobile-menu-toggle .icon-close { display: inline-block; }
 
 /* Visible scrollbar hint on overflow tables (mobile only) */
 @media (max-width: 767px) {

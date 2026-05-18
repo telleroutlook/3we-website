@@ -55,15 +55,15 @@ ${items}
   var html = document.documentElement;
   if(!btn) return;
   btn.addEventListener('click', function(){
-    var open = html.getAttribute('data-mobile-menu') === 'open';
-    html.setAttribute('data-mobile-menu', open ? 'closed' : 'open');
+    var open = html.classList.contains('menu-open');
+    html.classList.toggle('menu-open');
     btn.setAttribute('aria-expanded', String(!open));
     var menu = document.getElementById('mobileMenu');
     if(menu) menu.setAttribute('aria-hidden', String(open));
   });
   document.querySelectorAll('#mobileMenu a').forEach(function(a){
     a.addEventListener('click', function(){
-      html.setAttribute('data-mobile-menu', 'closed');
+      html.classList.remove('menu-open');
     });
   });
 })();
