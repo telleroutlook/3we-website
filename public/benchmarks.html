@@ -4,26 +4,41 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>3we Benchmarks — Standardized Embodied AI Evaluation</title>
-    <meta name="description" content="3 tasks × 8 scenes × public leaderboard. Reproducible evaluation across simulation and real hardware."/>
-<!-- seo:injected -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="icon" type="image/png" sizes="512x512" href="/img/logo.png"/>
-<link rel="apple-touch-icon" href="/img/logo.png"/>
-<meta name="theme-color" content="#815500"/>
-<meta name="robots" content="index,follow"/>
-<link rel="canonical" href="https://3we.org/benchmarks"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="3we Robot Platform"/>
-<meta property="og:url" content="https://3we.org/benchmarks"/>
-<meta property="og:title" content="3we Benchmarks — Standardized Embodied AI Evaluation"/>
-<meta property="og:description" content="3 tasks × 8 scenes × public leaderboard. Reproducible evaluation across simulation and real hardware."/>
-<meta property="og:image" content="https://3we.org/img/og-image.png"/>
-<meta property="og:image:width" content="512"/>
-<meta property="og:image:height" content="512"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="3we Benchmarks — Standardized Embodied AI Evaluation"/>
-<meta name="twitter:description" content="3 tasks × 8 scenes × public leaderboard. Reproducible evaluation across simulation and real hardware."/>
-<meta name="twitter:image" content="https://3we.org/img/og-image.png"/>
+    <meta
+      name="description"
+      content="3 tasks × 7 scenes × public leaderboard. Reproducible evaluation across simulation and real hardware."
+    />
+    <!-- seo:injected -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/img/logo.png" />
+    <link rel="apple-touch-icon" href="/img/logo.png" />
+    <meta name="theme-color" content="#815500" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://3we.org/benchmarks" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="3we Robot Platform" />
+    <meta property="og:url" content="https://3we.org/benchmarks" />
+    <meta
+      property="og:title"
+      content="3we Benchmarks — Standardized Embodied AI Evaluation"
+    />
+    <meta
+      property="og:description"
+      content="3 tasks × 7 scenes × public leaderboard. Reproducible evaluation across simulation and real hardware."
+    />
+    <meta property="og:image" content="https://3we.org/img/og-image.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="3we Benchmarks — Standardized Embodied AI Evaluation"
+    />
+    <meta
+      name="twitter:description"
+      content="3 tasks × 7 scenes × public leaderboard. Reproducible evaluation across simulation and real hardware."
+    />
+    <meta name="twitter:image" content="https://3we.org/img/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link
@@ -47,7 +62,18 @@
         class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center"
       >
         <div class="flex items-center gap-8">
-          <a href="/" class="flex items-center gap-2" aria-label="3we home"><img src="/img/logo.png" alt="3we Robot Platform" width="36" height="36" class="rounded-lg"/><span class="font-display text-headline-md font-bold tracking-tighter text-text-primary hidden sm:inline">3we</span></a>
+          <a href="/" class="flex items-center gap-2" aria-label="3we home"
+            ><img
+              src="/img/logo.png"
+              alt="3we Robot Platform"
+              width="36"
+              height="36"
+              class="rounded-lg"
+            /><span
+              class="font-display text-headline-md font-bold tracking-tighter text-text-primary hidden sm:inline"
+              >3we</span
+            ></a
+          >
           <div class="hidden md:flex gap-6">
             <a
               class="text-primary font-bold border-b-2 border-primary pb-1 font-mono text-label-caps uppercase"
@@ -83,48 +109,87 @@
             >Get Started</a
           >
         </div>
-        <button class="mobile-menu-toggle md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-text-primary" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
-      <span class="material-symbols-outlined icon-open">menu</span>
-      <span class="material-symbols-outlined icon-close">close</span>
-    </button>
-  </nav>
+        <button
+          class="mobile-menu-toggle md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-text-primary"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span class="material-symbols-outlined icon-open">menu</span>
+          <span class="material-symbols-outlined icon-close">close</span>
+        </button>
+      </nav>
     </header>
-<!-- mobile-nav:injected -->
-<div class="mobile-menu md:hidden" id="mobileMenu" aria-hidden="true">
-  <nav class="flex flex-col py-4 max-w-container-max mx-auto">
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-primary border-l-2 border-primary bg-surface-container-low" href="/">Product</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/hardware">Hardware</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/benchmarks">Benchmarks</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/pricing">Pricing</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/community">Community</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="https://docs.3we.org">Docs</a>
-    <div class="px-margin-mobile pt-6 mt-2 border-t border-border-subtle flex flex-col gap-3">
-      <a href="https://github.com/telleroutlook/3we-robot-platform" class="flex items-center gap-2 text-text-secondary font-mono text-label-caps uppercase">
-        <span class="material-symbols-outlined text-base">star</span> Star on GitHub
-      </a>
-      <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold text-center">Get Started</a>
+    <!-- mobile-nav:injected -->
+    <div class="mobile-menu md:hidden" id="mobileMenu" aria-hidden="true">
+      <nav class="flex flex-col py-4 max-w-container-max mx-auto">
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-primary border-l-2 border-primary bg-surface-container-low"
+          href="/"
+          >Product</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/hardware"
+          >Hardware</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/benchmarks"
+          >Benchmarks</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/pricing"
+          >Pricing</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/community"
+          >Community</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="https://docs.3we.org"
+          >Docs</a
+        >
+        <div
+          class="px-margin-mobile pt-6 mt-2 border-t border-border-subtle flex flex-col gap-3"
+        >
+          <a
+            href="https://github.com/telleroutlook/3we-robot-platform"
+            class="flex items-center gap-2 text-text-secondary font-mono text-label-caps uppercase"
+          >
+            <span class="material-symbols-outlined text-base">star</span> Star
+            on GitHub
+          </a>
+          <a
+            href="https://docs.3we.org"
+            class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold text-center"
+            >Get Started</a
+          >
+        </div>
+      </nav>
     </div>
-  </nav>
-</div>
-<script>
-(function(){
-  var btn = document.querySelector('.mobile-menu-toggle');
-  var html = document.documentElement;
-  if(!btn) return;
-  btn.addEventListener('click', function(){
-    var open = html.classList.contains('menu-open');
-    html.classList.toggle('menu-open');
-    btn.setAttribute('aria-expanded', String(!open));
-    var menu = document.getElementById('mobileMenu');
-    if(menu) menu.setAttribute('aria-hidden', String(open));
-  });
-  document.querySelectorAll('#mobileMenu a').forEach(function(a){
-    a.addEventListener('click', function(){
-      html.classList.remove('menu-open');
-    });
-  });
-})();
-</script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".mobile-menu-toggle");
+        var html = document.documentElement;
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = html.classList.contains("menu-open");
+          html.classList.toggle("menu-open");
+          btn.setAttribute("aria-expanded", String(!open));
+          var menu = document.getElementById("mobileMenu");
+          if (menu) menu.setAttribute("aria-hidden", String(open));
+        });
+        document.querySelectorAll("#mobileMenu a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            html.classList.remove("menu-open");
+          });
+        });
+      })();
+    </script>
 
     <main class="pt-24 overflow-x-hidden">
       <!-- Hero Section -->
@@ -141,7 +206,7 @@
           <span class="text-primary-container">Embodied AI</span>
         </h1>
         <p class="font-body text-body-lg text-text-secondary max-w-2xl">
-          3 tasks &times; 8 scenes &times; public leaderboard. Reproducible
+          3 tasks &times; 7 scenes &times; public leaderboard. Reproducible
           evaluation across simulation and real hardware.
         </p>
         <a
