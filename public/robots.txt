@@ -1,0 +1,6 @@
+# https://3we.org robots.txt
+User-agent: *
+Allow: /
+Disallow: /docs
+
+Sitemap: https://3we.org/sitemap.xml
