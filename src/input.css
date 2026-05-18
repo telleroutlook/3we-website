@@ -33,3 +33,53 @@
 .tab-panel.active {
   display: block;
 }
+
+/* ─── Mobile-first responsive primitives ──────────────────────────── */
+
+/* The Tailwind config defines section-gap=120px and headline-xl=64px,
+   which are too tall/large on phones. Compress them on small screens. */
+@media (max-width: 767px) {
+  .py-section-gap { padding-top: 64px; padding-bottom: 64px; }
+  .pb-section-gap { padding-bottom: 64px; }
+  .pt-section-gap { padding-top: 64px; }
+
+  /* Headlines that ship with the largest sizes need to step down on mobile */
+  .text-headline-xl { font-size: 40px; line-height: 1.15; }
+  .text-headline-lg { font-size: 30px; line-height: 1.2; }
+  .text-headline-md { font-size: 26px; line-height: 1.25; }
+
+  /* Make sure code blocks never blow the viewport */
+  pre { overflow-x: auto; max-width: 100%; }
+
+  /* Touch target minimum */
+  nav a.material-symbols-outlined { padding: 8px; margin: -8px; }
+}
+
+/* Mobile drawer — hidden by default, shown when [data-mobile-menu="open"] is set on <html> */
+.mobile-menu {
+  position: fixed;
+  inset: 64px 0 0 0;
+  background: #f9f9f9;
+  border-top: 1px solid #e5e5e0;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 49;
+}
+html[data-mobile-menu="open"] .mobile-menu {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+html[data-mobile-menu="open"] body { overflow: hidden; }
+.mobile-menu-toggle .icon-close { display: none; }
+html[data-mobile-menu="open"] .mobile-menu-toggle .icon-open { display: none; }
+html[data-mobile-menu="open"] .mobile-menu-toggle .icon-close { display: inline-block; }
+
+/* Visible scrollbar hint on overflow tables (mobile only) */
+@media (max-width: 767px) {
+  .overflow-x-auto::after {
+    content: '';
+  }
+}
