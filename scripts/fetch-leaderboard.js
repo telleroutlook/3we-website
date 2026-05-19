@@ -46,12 +46,37 @@ async function main() {
     fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
     fs.writeFileSync(OUTPUT_PATH, data);
     console.log("[leaderboard] Written to", OUTPUT_PATH);
+    return;
   } catch (err) {
-    console.warn(
-      "[leaderboard] WARN: Could not fetch remote data:",
+    console.error(
+      "[leaderboard] ERROR: Could not fetch remote data:",
       err.message,
     );
-    console.warn("[leaderboard] Using fallback (empty entries)");
+
+    if (process.env.ALLOW_LEADERBOARD_FALLBACK !== "1") {
+      console.error(
+        "[leaderboard] Refusing to deploy with stale or empty leaderboard data.",
+      );
+      console.error(
+        "[leaderboard] Fix the network issue and re-run, or set ALLOW_LEADERBOARD_FALLBACK=1",
+      );
+      console.error(
+        "[leaderboard] (e.g. for local preview) to keep the existing file or write empty entries.",
+      );
+      process.exit(1);
+    }
+
+    if (fs.existsSync(OUTPUT_PATH)) {
+      console.warn(
+        "[leaderboard] ALLOW_LEADERBOARD_FALLBACK=1 — keeping existing",
+        OUTPUT_PATH,
+      );
+      return;
+    }
+
+    console.warn(
+      "[leaderboard] ALLOW_LEADERBOARD_FALLBACK=1 and no existing file — writing empty entries",
+    );
     const fallback = JSON.stringify(
       { version: "1.0.0", last_updated: "", entries: [] },
       null,
