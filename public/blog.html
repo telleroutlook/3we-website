@@ -1,295 +1,652 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="scroll-smooth" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>3we Blog — Engineering Notes on Embodied AI</title>
-<meta name="description" content="Technical deep-dives, development logs, and tutorials from the 3we robotics team."/>
-<!-- seo:injected:v2 -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
-<link rel="shortcut icon" href="/favicon.ico"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-<meta name="theme-color" content="#1a1d23"/>
-<meta name="robots" content="index,follow"/>
-<link rel="canonical" href="https://3we.org/blog"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="3we Robot Platform"/>
-<meta property="og:url" content="https://3we.org/blog"/>
-<meta property="og:title" content="3we Blog — Engineering Notes on Embodied AI"/>
-<meta property="og:description" content="Technical deep-dives, development logs, and tutorials from the 3we robotics team."/>
-<meta property="og:image" content="https://3we.org/img/og-image.png"/>
-<meta property="og:image:type" content="image/png"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="3WE Robot Platform — AI-First Open Source Embodied Robotics"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="3we Blog — Engineering Notes on Embodied AI"/>
-<meta name="twitter:description" content="Technical deep-dives, development logs, and tutorials from the 3we robotics team."/>
-<meta name="twitter:image" content="https://3we.org/img/og-image.png"/>
-<meta name="twitter:image:alt" content="3WE Robot Platform — AI-First Open Source Embodied Robotics"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/css/styles.css"/>
-</head>
-<body class="bg-background text-text-primary font-body selection:bg-primary-fixed">
-
-<!-- Navigation -->
-<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle">
-<nav class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
-  <div class="flex items-center gap-8">
-    <a href="/" class="flex items-center gap-2" aria-label="3we home"><img src="/img/logo.png" alt="3we Robot Platform" width="36" height="36" class="rounded-lg"/><span class="font-display text-headline-md font-bold tracking-tighter text-text-primary hidden sm:inline">3we</span></a>
-    <div class="hidden md:flex gap-6">
-      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/">Product</a>
-      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/hardware">Hardware</a>
-      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="/community">Community</a>
-      <a class="text-primary font-bold border-b-2 border-primary pb-1 font-mono text-label-caps uppercase" href="/blog">Blog</a>
-      <a class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase" href="https://docs.3we.org">Docs</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>3we Blog — Engineering Notes on Embodied AI</title>
+    <meta
+      name="description"
+      content="Technical deep-dives, development logs, and tutorials from the 3we robotics team."
+    />
+    <!-- seo:injected:v2 -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1a1d23" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://3we.org/blog" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="3we Robot Platform" />
+    <meta property="og:url" content="https://3we.org/blog" />
+    <meta
+      property="og:title"
+      content="3we Blog — Engineering Notes on Embodied AI"
+    />
+    <meta
+      property="og:description"
+      content="Technical deep-dives, development logs, and tutorials from the 3we robotics team."
+    />
+    <meta property="og:image" content="https://3we.org/img/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="3WE Robot Platform — AI-First Open Source Embodied Robotics"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="3we Blog — Engineering Notes on Embodied AI"
+    />
+    <meta
+      name="twitter:description"
+      content="Technical deep-dives, development logs, and tutorials from the 3we robotics team."
+    />
+    <meta name="twitter:image" content="https://3we.org/img/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="3WE Robot Platform — AI-First Open Source Embodied Robotics"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body
+    class="bg-background text-text-primary font-body selection:bg-primary-fixed"
+  >
+    <!-- Navigation -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle"
+    >
+      <nav
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-8">
+          <a href="/" class="flex items-center gap-2" aria-label="3we home"
+            ><img
+              src="/img/logo.png"
+              alt="3we Robot Platform"
+              width="36"
+              height="36"
+              class="rounded-lg"
+            /><span
+              class="font-display text-headline-md font-bold tracking-tighter text-text-primary hidden sm:inline"
+              >3we</span
+            ></a
+          >
+          <div class="hidden md:flex gap-6">
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="/"
+              >Product</a
+            >
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="/hardware"
+              >Hardware</a
+            >
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="/community"
+              >Community</a
+            >
+            <a
+              class="text-primary font-bold border-b-2 border-primary pb-1 font-mono text-label-caps uppercase"
+              href="/blog"
+              >Blog</a
+            >
+            <a
+              class="text-text-secondary hover:text-primary transition-colors font-mono text-label-caps uppercase"
+              href="https://docs.3we.org"
+              >Docs</a
+            >
+          </div>
+        </div>
+        <div class="hidden md:flex items-center gap-4">
+          <a
+            href="https://github.com/telleroutlook/3we-robot-platform"
+            class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all"
+            >star</a
+          >
+          <a
+            href="https://docs.3we.org"
+            class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95"
+            >Get Started</a
+          >
+        </div>
+        <button
+          class="mobile-menu-toggle md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-text-primary"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span class="material-symbols-outlined icon-open">menu</span>
+          <span class="material-symbols-outlined icon-close">close</span>
+        </button>
+      </nav>
+    </header>
+    <!-- mobile-nav:injected -->
+    <div class="mobile-menu md:hidden" id="mobileMenu" aria-hidden="true">
+      <nav class="flex flex-col py-4 max-w-container-max mx-auto">
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/"
+          >Product</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/hardware"
+          >Hardware</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/benchmarks"
+          >Benchmarks</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/pricing"
+          >Pricing</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="/community"
+          >Community</a
+        >
+        <a
+          class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent"
+          href="https://docs.3we.org"
+          >Docs</a
+        >
+        <div
+          class="px-margin-mobile pt-6 mt-2 border-t border-border-subtle flex flex-col gap-3"
+        >
+          <a
+            href="https://github.com/telleroutlook/3we-robot-platform"
+            class="flex items-center gap-2 text-text-secondary font-mono text-label-caps uppercase"
+          >
+            <span class="material-symbols-outlined text-base">star</span> Star
+            on GitHub
+          </a>
+          <a
+            href="https://docs.3we.org"
+            class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold text-center"
+            >Get Started</a
+          >
+        </div>
+      </nav>
     </div>
-  </div>
-  <div class="hidden md:flex items-center gap-4">
-    <a href="https://github.com/telleroutlook/3we-robot-platform" class="material-symbols-outlined text-text-secondary cursor-pointer hover:text-primary transition-all">star</a>
-    <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95">Get Started</a>
-  </div>
-  <button class="mobile-menu-toggle md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-text-primary" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
-      <span class="material-symbols-outlined icon-open">menu</span>
-      <span class="material-symbols-outlined icon-close">close</span>
-    </button>
-  </nav>
-</header>
-<!-- mobile-nav:injected -->
-<div class="mobile-menu md:hidden" id="mobileMenu" aria-hidden="true">
-  <nav class="flex flex-col py-4 max-w-container-max mx-auto">
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/">Product</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/hardware">Hardware</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/benchmarks">Benchmarks</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/pricing">Pricing</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="/community">Community</a>
-      <a class="block py-4 px-margin-mobile font-mono text-label-caps uppercase text-text-secondary hover:text-primary border-l-2 border-transparent" href="https://docs.3we.org">Docs</a>
-    <div class="px-margin-mobile pt-6 mt-2 border-t border-border-subtle flex flex-col gap-3">
-      <a href="https://github.com/telleroutlook/3we-robot-platform" class="flex items-center gap-2 text-text-secondary font-mono text-label-caps uppercase">
-        <span class="material-symbols-outlined text-base">star</span> Star on GitHub
-      </a>
-      <a href="https://docs.3we.org" class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold text-center">Get Started</a>
-    </div>
-  </nav>
-</div>
-<script>
-(function(){
-  var btn = document.querySelector('.mobile-menu-toggle');
-  var html = document.documentElement;
-  if(!btn) return;
-  btn.addEventListener('click', function(){
-    var open = html.classList.contains('menu-open');
-    html.classList.toggle('menu-open');
-    btn.setAttribute('aria-expanded', String(!open));
-    var menu = document.getElementById('mobileMenu');
-    if(menu) menu.setAttribute('aria-hidden', String(open));
-  });
-  document.querySelectorAll('#mobileMenu a').forEach(function(a){
-    a.addEventListener('click', function(){
-      html.classList.remove('menu-open');
-    });
-  });
-})();
-</script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".mobile-menu-toggle");
+        var html = document.documentElement;
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = html.classList.contains("menu-open");
+          html.classList.toggle("menu-open");
+          btn.setAttribute("aria-expanded", String(!open));
+          var menu = document.getElementById("mobileMenu");
+          if (menu) menu.setAttribute("aria-hidden", String(open));
+        });
+        document.querySelectorAll("#mobileMenu a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            html.classList.remove("menu-open");
+          });
+        });
+      })();
+    </script>
 
-<main class="pt-24 overflow-x-hidden">
+    <main class="pt-24 overflow-x-hidden">
+      <!-- Hero Section -->
+      <section
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 text-center"
+      >
+        <h1
+          class="font-display text-4xl md:text-headline-xl text-text-primary leading-tight mb-4"
+        >
+          Engineering Blog
+        </h1>
+        <p class="font-body text-body-lg text-text-secondary max-w-2xl mx-auto">
+          Technical deep-dives, development logs, and tutorials from the 3we
+          team.
+        </p>
+      </section>
 
-<!-- Hero Section -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 text-center">
-  <h1 class="font-display text-4xl md:text-headline-xl text-text-primary leading-tight mb-4">Engineering Blog</h1>
-  <p class="font-body text-body-lg text-text-secondary max-w-2xl mx-auto">Technical deep-dives, development logs, and tutorials from the 3we team.</p>
-</section>
+      <!-- Featured Post -->
+      <section
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-16"
+      >
+        <div
+          class="bg-white border border-border-subtle rounded-2xl p-8 md:p-12 hover:shadow-lg transition-all group relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-1 bg-primary-container"
+          ></div>
+          <div class="flex flex-col gap-6">
+            <div class="flex items-center gap-4">
+              <span
+                class="inline-block px-3 py-1 bg-primary-container/10 text-primary font-mono text-label-caps uppercase rounded-full"
+                >Engineering</span
+              >
+              <span class="text-body-sm text-text-tertiary font-body"
+                >Featured</span
+              >
+            </div>
+            <h2
+              class="font-display text-headline-md md:text-headline-lg group-hover:text-primary transition-colors"
+            >
+              Dev Log #1: Why ESP32-S3, Mecanum Wheels, and PBC-34
+            </h2>
+            <p class="font-body text-body-lg text-text-secondary max-w-3xl">
+              The engineering decisions behind our microcontroller choice, drive
+              system selection, and the creation of a standardized payload bus
+              for modular robotics.
+            </p>
+            <div class="flex items-center gap-6 flex-wrap">
+              <div class="flex items-center gap-2 text-text-tertiary">
+                <span class="material-symbols-outlined text-sm"
+                  >calendar_today</span
+                >
+                <span class="font-mono text-body-sm">May 2025</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-tertiary">
+                <span class="material-symbols-outlined text-sm">schedule</span>
+                <span class="font-mono text-body-sm">8 min read</span>
+              </div>
+            </div>
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-3 transition-all"
+            >
+              Read Article
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
 
-<!-- Featured Post -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-16">
-  <div class="bg-white border border-border-subtle rounded-2xl p-8 md:p-12 hover:shadow-lg transition-all group relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-    <div class="flex flex-col gap-6">
-      <div class="flex items-center gap-4">
-        <span class="inline-block px-3 py-1 bg-primary-container/10 text-primary font-mono text-label-caps uppercase rounded-full">Engineering</span>
-        <span class="text-body-sm text-text-tertiary font-body">Featured</span>
+      <!-- Tags Filter Bar -->
+      <section
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-8"
+      >
+        <div class="flex flex-wrap gap-3">
+          <button
+            class="px-4 py-2 bg-primary-container text-on-primary-container font-mono text-label-caps uppercase rounded-full font-bold transition-all"
+          >
+            All
+          </button>
+          <button
+            class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all"
+          >
+            Engineering
+          </button>
+          <button
+            class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all"
+          >
+            Tutorial
+          </button>
+          <button
+            class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all"
+          >
+            Research
+          </button>
+          <button
+            class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all"
+          >
+            Community
+          </button>
+        </div>
+      </section>
+
+      <!-- Article Grid -->
+      <section
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap"
+      >
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          <!-- Article 1 -->
+          <article
+            class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group"
+          >
+            <div class="h-1 bg-primary-container/10"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <span
+                class="inline-block px-3 py-1 bg-primary-container/10 text-primary font-mono text-label-caps uppercase rounded-full w-fit"
+                >Engineering</span
+              >
+              <h3
+                class="font-display text-headline-sm group-hover:text-primary transition-colors"
+              >
+                Sim2Real in Practice
+              </h3>
+              <p
+                class="font-body text-body-sm text-text-secondary line-clamp-3"
+              >
+                A consistent Python API across backends is necessary but not
+                sufficient — what actually transfers, and what needs
+                task-specific tuning.
+              </p>
+              <div class="flex items-center gap-4 text-text-tertiary mt-auto">
+                <span class="font-mono text-body-sm">May 2025</span>
+                <span class="font-mono text-body-sm">6 min read</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all"
+              >
+                Read
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article
+            class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group"
+          >
+            <div class="h-1 bg-primary-container/10"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <span
+                class="inline-block px-3 py-1 bg-tertiary/10 text-tertiary font-mono text-label-caps uppercase rounded-full w-fit"
+                >Tutorial</span
+              >
+              <h3
+                class="font-display text-headline-sm group-hover:text-primary transition-colors"
+              >
+                Build a $300 Robot
+              </h3>
+              <p
+                class="font-body text-body-sm text-text-secondary line-clamp-3"
+              >
+                Complete step-by-step assembly walkthrough with cost
+                optimization tips for the Standard SKU.
+              </p>
+              <div class="flex items-center gap-4 text-text-tertiary mt-auto">
+                <span class="font-mono text-body-sm">Apr 2025</span>
+                <span class="font-mono text-body-sm">12 min read</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all"
+              >
+                Read
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article
+            class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group"
+          >
+            <div class="h-1 bg-primary-container/10"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="flex gap-2 flex-wrap">
+                <span
+                  class="inline-block px-3 py-1 bg-tertiary/10 text-tertiary font-mono text-label-caps uppercase rounded-full w-fit"
+                  >Tutorial</span
+                >
+                <span
+                  class="inline-block px-3 py-1 bg-secondary-container/20 text-on-secondary-container font-mono text-label-caps uppercase rounded-full w-fit"
+                  >AI</span
+                >
+              </div>
+              <h3
+                class="font-display text-headline-sm group-hover:text-primary transition-colors"
+              >
+                VLM Robot Control in 30 Lines
+              </h3>
+              <p
+                class="font-body text-body-sm text-text-secondary line-clamp-3"
+              >
+                Using GPT-4o to control a physical robot with natural language
+                instructions via the 3we SDK.
+              </p>
+              <div class="flex items-center gap-4 text-text-tertiary mt-auto">
+                <span class="font-mono text-body-sm">Apr 2025</span>
+                <span class="font-mono text-body-sm">5 min read</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all"
+              >
+                Read
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article
+            class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group"
+          >
+            <div class="h-1 bg-primary-container/10"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <span
+                class="inline-block px-3 py-1 bg-outline-variant/20 text-outline font-mono text-label-caps uppercase rounded-full w-fit"
+                >Research</span
+              >
+              <h3
+                class="font-display text-headline-sm group-hover:text-primary transition-colors"
+              >
+                Platform Paper Deep Dive
+              </h3>
+              <p
+                class="font-body text-body-sm text-text-secondary line-clamp-3"
+              >
+                A guided walkthrough of our academic paper: problem statement,
+                architecture, and benchmark results.
+              </p>
+              <div class="flex items-center gap-4 text-text-tertiary mt-auto">
+                <span class="font-mono text-body-sm">Mar 2025</span>
+                <span class="font-mono text-body-sm">10 min read</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all"
+              >
+                Read
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article
+            class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group"
+          >
+            <div class="h-1 bg-primary-container/10"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <span
+                class="inline-block px-3 py-1 bg-outline-variant/20 text-outline font-mono text-label-caps uppercase rounded-full w-fit"
+                >Research</span
+              >
+              <h3
+                class="font-display text-headline-sm group-hover:text-primary transition-colors"
+              >
+                Benchmarking Embodied AI
+              </h3>
+              <p
+                class="font-body text-body-sm text-text-secondary line-clamp-3"
+              >
+                How we designed standardized benchmarks for PointNav, ObjectNav,
+                and Exploration tasks.
+              </p>
+              <div class="flex items-center gap-4 text-text-tertiary mt-auto">
+                <span class="font-mono text-body-sm">Mar 2025</span>
+                <span class="font-mono text-body-sm">7 min read</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all"
+              >
+                Read
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Newsletter CTA -->
+      <section class="bg-surface-studio border-y border-border-subtle py-20">
+        <div
+          class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center"
+        >
+          <div class="max-w-xl mx-auto flex flex-col items-center gap-6">
+            <span
+              class="material-symbols-outlined text-4xl text-primary-container"
+              >mail</span
+            >
+            <h2 class="font-display text-headline-lg">Stay Updated</h2>
+            <p class="font-body text-body-md text-text-secondary">
+              Get notified about new posts and platform updates.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+              <input
+                type="email"
+                placeholder="you@example.com"
+                class="flex-1 px-4 py-3 rounded-lg border border-border-subtle bg-surface-container-lowest font-body text-body-md focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all"
+              />
+              <button
+                type="submit"
+                class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest border-t border-border-subtle py-20"
+    >
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter"
+      >
+        <div class="col-span-2">
+          <span
+            class="font-display text-headline-sm font-bold text-text-primary mb-4 block"
+            >3we</span
+          >
+          <p class="text-body-sm text-text-secondary font-body max-w-xs">
+            AI-First open infrastructure for embodied robotics research and
+            education.
+          </p>
+          <p class="mt-8 text-body-sm text-text-tertiary font-body">
+            &copy; 2026 3we Robotics. Apache 2.0 + CERN-OHL-P v2.
+          </p>
+        </div>
+        <div>
+          <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">
+            Product
+          </h5>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/product"
+                >Platform</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/hardware"
+                >Hardware</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="https://docs.3we.org"
+                >Documentation</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">
+            Community
+          </h5>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="https://github.com/telleroutlook/3we-robot-platform"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/community"
+                >Discussions</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="/community"
+                >Contributing</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">
+            Legal
+          </h5>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="#"
+                >Apache 2.0</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="#"
+                >CERN-OHL-P v2</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body"
+                href="#"
+                >CC BY-SA 4.0</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-      <h2 class="font-display text-headline-md md:text-headline-lg group-hover:text-primary transition-colors">Dev Log #1: Why ESP32-S3, Mecanum Wheels, and PBC-34</h2>
-      <p class="font-body text-body-lg text-text-secondary max-w-3xl">The engineering decisions behind our microcontroller choice, drive system selection, and the creation of a standardized payload bus for modular robotics.</p>
-      <div class="flex items-center gap-6 flex-wrap">
-        <div class="flex items-center gap-2 text-text-tertiary">
-          <span class="material-symbols-outlined text-sm">calendar_today</span>
-          <span class="font-mono text-body-sm">May 2025</span>
-        </div>
-        <div class="flex items-center gap-2 text-text-tertiary">
-          <span class="material-symbols-outlined text-sm">schedule</span>
-          <span class="font-mono text-body-sm">8 min read</span>
-        </div>
-      </div>
-      <a href="#" class="inline-flex items-center gap-2 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-3 transition-all">
-        Read Article <span class="material-symbols-outlined text-sm">arrow_forward</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Tags Filter Bar -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-8">
-  <div class="flex flex-wrap gap-3">
-    <button class="px-4 py-2 bg-primary-container text-on-primary-container font-mono text-label-caps uppercase rounded-full font-bold transition-all">All</button>
-    <button class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all">Engineering</button>
-    <button class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all">Tutorial</button>
-    <button class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all">Research</button>
-    <button class="px-4 py-2 bg-surface-container text-text-secondary font-mono text-label-caps uppercase rounded-full font-bold hover:bg-primary-container/10 hover:text-primary transition-all">Community</button>
-  </div>
-</section>
-
-<!-- Article Grid -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap">
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-
-    <!-- Article 1 -->
-    <article class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group">
-      <div class="h-1 bg-primary-container/10"></div>
-      <div class="p-6 flex flex-col gap-4">
-        <span class="inline-block px-3 py-1 bg-primary-container/10 text-primary font-mono text-label-caps uppercase rounded-full w-fit">Engineering</span>
-        <h3 class="font-display text-headline-sm group-hover:text-primary transition-colors">Sim2Real in Practice</h3>
-        <p class="font-body text-body-sm text-text-secondary line-clamp-3">How our backend abstraction layer guarantees zero-modification transfer and how we enforce it in CI.</p>
-        <div class="flex items-center gap-4 text-text-tertiary mt-auto">
-          <span class="font-mono text-body-sm">May 2025</span>
-          <span class="font-mono text-body-sm">6 min read</span>
-        </div>
-        <a href="#" class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all">
-          Read <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </div>
-    </article>
-
-    <!-- Article 2 -->
-    <article class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group">
-      <div class="h-1 bg-primary-container/10"></div>
-      <div class="p-6 flex flex-col gap-4">
-        <span class="inline-block px-3 py-1 bg-tertiary/10 text-tertiary font-mono text-label-caps uppercase rounded-full w-fit">Tutorial</span>
-        <h3 class="font-display text-headline-sm group-hover:text-primary transition-colors">Build a $300 Robot</h3>
-        <p class="font-body text-body-sm text-text-secondary line-clamp-3">Complete step-by-step assembly walkthrough with cost optimization tips for the Standard SKU.</p>
-        <div class="flex items-center gap-4 text-text-tertiary mt-auto">
-          <span class="font-mono text-body-sm">Apr 2025</span>
-          <span class="font-mono text-body-sm">12 min read</span>
-        </div>
-        <a href="#" class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all">
-          Read <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </div>
-    </article>
-
-    <!-- Article 3 -->
-    <article class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group">
-      <div class="h-1 bg-primary-container/10"></div>
-      <div class="p-6 flex flex-col gap-4">
-        <div class="flex gap-2 flex-wrap">
-          <span class="inline-block px-3 py-1 bg-tertiary/10 text-tertiary font-mono text-label-caps uppercase rounded-full w-fit">Tutorial</span>
-          <span class="inline-block px-3 py-1 bg-secondary-container/20 text-on-secondary-container font-mono text-label-caps uppercase rounded-full w-fit">AI</span>
-        </div>
-        <h3 class="font-display text-headline-sm group-hover:text-primary transition-colors">VLM Robot Control in 30 Lines</h3>
-        <p class="font-body text-body-sm text-text-secondary line-clamp-3">Using GPT-4o to control a physical robot with natural language instructions via the 3we SDK.</p>
-        <div class="flex items-center gap-4 text-text-tertiary mt-auto">
-          <span class="font-mono text-body-sm">Apr 2025</span>
-          <span class="font-mono text-body-sm">5 min read</span>
-        </div>
-        <a href="#" class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all">
-          Read <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </div>
-    </article>
-
-    <!-- Article 4 -->
-    <article class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group">
-      <div class="h-1 bg-primary-container/10"></div>
-      <div class="p-6 flex flex-col gap-4">
-        <span class="inline-block px-3 py-1 bg-outline-variant/20 text-outline font-mono text-label-caps uppercase rounded-full w-fit">Research</span>
-        <h3 class="font-display text-headline-sm group-hover:text-primary transition-colors">Platform Paper Deep Dive</h3>
-        <p class="font-body text-body-sm text-text-secondary line-clamp-3">A guided walkthrough of our academic paper: problem statement, architecture, and benchmark results.</p>
-        <div class="flex items-center gap-4 text-text-tertiary mt-auto">
-          <span class="font-mono text-body-sm">Mar 2025</span>
-          <span class="font-mono text-body-sm">10 min read</span>
-        </div>
-        <a href="#" class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all">
-          Read <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </div>
-    </article>
-
-    <!-- Article 5 -->
-    <article class="bg-white border border-border-subtle rounded-xl overflow-hidden hover:shadow-lg transition-all group">
-      <div class="h-1 bg-primary-container/10"></div>
-      <div class="p-6 flex flex-col gap-4">
-        <span class="inline-block px-3 py-1 bg-outline-variant/20 text-outline font-mono text-label-caps uppercase rounded-full w-fit">Research</span>
-        <h3 class="font-display text-headline-sm group-hover:text-primary transition-colors">Benchmarking Embodied AI</h3>
-        <p class="font-body text-body-sm text-text-secondary line-clamp-3">How we designed standardized benchmarks for PointNav, ObjectNav, and Exploration tasks.</p>
-        <div class="flex items-center gap-4 text-text-tertiary mt-auto">
-          <span class="font-mono text-body-sm">Mar 2025</span>
-          <span class="font-mono text-body-sm">7 min read</span>
-        </div>
-        <a href="#" class="inline-flex items-center gap-1 text-primary font-mono text-label-caps uppercase font-bold group-hover:gap-2 transition-all">
-          Read <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- Newsletter CTA -->
-<section class="bg-surface-studio border-y border-border-subtle py-20">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
-    <div class="max-w-xl mx-auto flex flex-col items-center gap-6">
-      <span class="material-symbols-outlined text-4xl text-primary-container">mail</span>
-      <h2 class="font-display text-headline-lg">Stay Updated</h2>
-      <p class="font-body text-body-md text-text-secondary">Get notified about new posts and platform updates.</p>
-      <form class="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-        <input type="email" placeholder="you@example.com" class="flex-1 px-4 py-3 rounded-lg border border-border-subtle bg-surface-container-lowest font-body text-body-md focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all"/>
-        <button type="submit" class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-mono text-label-caps uppercase font-bold hover:bg-secondary-container transition-all active:scale-95">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-border-subtle py-20">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-5 gap-gutter">
-  <div class="col-span-2">
-    <span class="font-display text-headline-sm font-bold text-text-primary mb-4 block">3we</span>
-    <p class="text-body-sm text-text-secondary font-body max-w-xs">AI-First open infrastructure for embodied robotics research and education.</p>
-    <p class="mt-8 text-body-sm text-text-tertiary font-body">&copy; 2026 3we Robotics. Apache 2.0 + CERN-OHL-P v2.</p>
-  </div>
-  <div>
-    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Product</h5>
-    <ul class="flex flex-col gap-4">
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/product">Platform</a></li>
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/hardware">Hardware</a></li>
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://docs.3we.org">Documentation</a></li>
-    </ul>
-  </div>
-  <div>
-    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Community</h5>
-    <ul class="flex flex-col gap-4">
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="https://github.com/telleroutlook/3we-robot-platform">GitHub</a></li>
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Discussions</a></li>
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="/community">Contributing</a></li>
-    </ul>
-  </div>
-  <div>
-    <h5 class="font-mono text-label-caps text-primary mb-6 uppercase">Legal</h5>
-    <ul class="flex flex-col gap-4">
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">Apache 2.0</a></li>
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CERN-OHL-P v2</a></li>
-      <li><a class="text-body-sm text-text-secondary hover:text-primary transition-colors font-body" href="#">CC BY-SA 4.0</a></li>
-    </ul>
-  </div>
-</div>
-</footer>
-
-</body>
+    </footer>
+  </body>
 </html>
